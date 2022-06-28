@@ -1,0 +1,106 @@
+---
+  id: installation
+  displayed_sidebar: reactNativeSidebar
+  title: Instalação
+  description: Instalação e configuração do @stardust-ds/react-native
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Nossa **library** faz uso de algumas dependências e configurações padrões que são necessárias para o nosso funcionamento **default** que segue o nosso _Design System_.
+
+Essas dependências por exemplo são:
+
+### SVG
+
+Necessário configurar duas **libraries**:
+
+- [react-native-svg](https://github.com/react-native-svg/react-native-svg)
+
+  - Caso esteja utilizando Typescript (o que recomendamos), precisará criar um arquivo, ou adicionar caso exista um, para que o typescript reconheça os imports dos svgs:
+    `custom.d.ts`:
+
+  ```js
+  declare module '*.svg' {
+    const content: any;
+    export default content;
+  }
+  ```
+
+- [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer)
+
+  - Para podermos manipular as cores dos svg que eventualmente usará, precisamos criar um arquivo para a configuração desses svgs.
+    `.svgrrc`
+
+  ```js
+    {
+      "replaceAttrValues": {
+        "#000000": "{props.fill}",
+        "black": "{props.fill}"
+      }
+    }
+  ```
+
+:::caution Tenha ATENÇÃO
+Caso a cor do seu svg não for um dos valores '#000000' ou 'black', a cor do mesmo não será alterada. Para isso, ou mude as cores do svg para tais cores mencionadas ou adicione uma nova propriedade no 'replaceAttrValues' com a cor que quer substituir. exemplo: "red": "{props.fill}"
+:::
+
+### Tipografia - customizada ([Poppins](./src/assets/fonts/))
+
+- É necessário criar um arquivo chamado de `react-native.config.js` caso o teu projeto não possua.
+- Criar uma pasta `assets/fonts` e colocar os arquivos de fontes dentro.
+
+- `react-native.config.js`:
+
+  ```js
+  module.exports = {
+    assets: ["./assets/fonts"],
+  };
+  ```
+
+- Então execute o comando
+
+  ```bash
+  npx react-native link
+  ```
+
+  Para maior entendimento da utilização do Typography em diferentes sistemas operacionais, consulte a documentação específica [aqui](./Typography.md)
+
+### Instalando a library
+
+Após as configurações acima, temos que instalar a nossa **library** como uma dependência no vosso projeto.
+
+<Tabs groupId='yarn-npm'>
+<TabItem value='yarn' label='yarn'>
+
+```shell
+  yarn add @stardust-ds/react-native
+```
+
+</TabItem>
+
+<TabItem value='npm' label='npm'>
+
+```shell
+  npm install @stardust-ds/react-native
+```
+
+</TabItem>
+</Tabs>
+
+Agora precisamos fazer algumas configurações para podermos utilizar os recursos dentro do projeto.
+
+Precisamos encapsular o seu **APP** no `ThemeManager` para o tema ser acessível em toda a aplicação:
+
+```jsx
+import { ThemeManager } from "@stardust-ds/react-native";
+
+const App = () => (
+  <ThemeManager>
+    <SeuAppAqui />
+  </ThemeManager>
+);
+```
+
+Com essa configuração já será possível fazer a utilização dos componentes disponíveis na _library_.

@@ -1,0 +1,76 @@
+---
+  id: installation
+  displayed_sidebar: reactJsSidebar
+  title: Instalação
+  description: Instalação e configuração do @stardust-ds/react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Nossa biblioteca precisa de algumas configurações para que o padrão do Design System funcione corretamente.
+
+## Instalação do pacote
+
+Para instalar e salvar nas dependências do `package.json`, execute:
+
+<Tabs groupId='yarn-npm'>
+<TabItem value='yarn' label='yarn'>
+
+```shell
+  yarn add @stardust-ds/react
+```
+
+</TabItem>
+
+<TabItem value='npm' label='npm'>
+
+```shell
+  npm install @stardust-ds/react
+```
+
+</TabItem>
+</Tabs>
+
+## Importação da fonte
+
+Usamos uma fonte padrão, então para fazer uso desta, você precisará adicionar a importação da fonte em public/index.html. O tema Stardust aplicará estas fontes automaticamente.
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+```
+
+## Configuração do tema
+
+Após, é somente englobar a aplicação com o _Provider_ do tema: <br />
+
+> Por exemplo, em: `src/App.tsx` ou `src/App.jsx`.
+
+```jsx
+// App.tsx
+
+import { ThemeProvider } from "@stardust-ds/react";
+import Page from "path/to/page";
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <Page />
+    </ThemeProvider>
+  );
+};
+```
+
+<!--
+TODO: Inserir link em "estes passos" para a página apropriada
+-->
+
+:::tip Integração com styled-components
+Stardust React JS utiliza `styled-components` como provider de tema. Para agilizar o seu processo, nós possibilitamos que você use este tema!
+Siga estes passos para fazer a configuração necessária.
+:::
