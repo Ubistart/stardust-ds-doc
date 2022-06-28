@@ -1,20 +1,20 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Esta documentação foi construída com [Docusaurus 2](https://docusaurus.io/).
 
-### Installation
+### Instalação
 
 ```
 $ yarn
 ```
 
-### Local Development
+### Desenvolvimento local
 
 ```
 $ yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Este comando inicia um servidor de desenvolvimento local e abre uma janela do navegador. A maioria das alterações são refletidas ao vivo sem a necessidade de reiniciar o servidor.
 
 ### Build
 
@@ -22,20 +22,12 @@ This command starts a local development server and opens up a browser window. Mo
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Este comando gera conteúdo estático no diretório `build` e pode ser servido usando qualquer serviço de hospedagem de conteúdo estático.
 
-### Deployment
+### Estrutura
 
-Using SSH:
+Esta biblioteca possui vários pacotes, esta estrutura se reflete estrutura da documentação, portanto, dentro da pasta `docs` são distribuídas as documentações pertinentes a biblioteca.
 
-```
-$ USE_SSH=true yarn deploy
-```
+As _sidebars_ refletem a mesma lógica, estão separadas por bibliotecas dentro da pasta `sidebars`.
 
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Portanto, para adicionar uma nova documentação, você precisará inserir a página dentro da pasta `docs` e popular o arquivo da sidebar pertinente à documentação em questão.
