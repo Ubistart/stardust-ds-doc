@@ -9,7 +9,7 @@ const config = {
   title: 'Stardust',
   tagline: 'Biblioteca de componentes UI desenvolvido por Ubistart',
   url: 'https://locahost:3000',
-  baseUrl: '/stardust-ds-doc',
+  baseUrl: '/stardust-ds-doc/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
