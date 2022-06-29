@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkstardust_ds_doc=self.webpackChunkstardust_ds_doc||[]).push([[210],{1020:function(s){s.exports=JSON.parse('{"label":"Test","permalink":"/docs/tags/test","allTagsPath":"/docs/tags","count":1,"items":[{"id":"test","title":"P\xe1gina de teste","description":"Tabela","permalink":"/docs/test"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstardust_ds_doc=self.webpackChunkstardust_ds_doc||[]).push([[745],{5100:function(s){s.exports=JSON.parse('{"label":"Demo","permalink":"/stardust-ds-doc/docs/tags/demo","allTagsPath":"/stardust-ds-doc/docs/tags","count":1,"items":[{"id":"test","title":"P\xe1gina de teste","description":"Tabela","permalink":"/stardust-ds-doc/docs/test"}]}')}}]);
