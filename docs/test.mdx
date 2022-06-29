@@ -7,6 +7,7 @@ tags:
 ---
 
 ## Tabela
+
 <table>
   <thead>
     <tr>
@@ -24,9 +25,11 @@ tags:
 </table>
 
 ## Imagem
+
 ![img alt](/img/logo.png)
 
 ## Citações
+
 > Aqui estou citando o Cléber
 >
 > — Eu mesmo
@@ -45,25 +48,29 @@ tags:
 
 ## MDX
 
-export const Highlight = ({children, color}) => (
+export const Highlight = ({ children, color }) => (
   <span
     style={{
       backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>
+      borderRadius: "2px",
+      color: "#fff",
+      padding: "0.2rem",
+    }}
+  >
     {children}
   </span>
 );
 
-<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
+<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">
+  Facebook blue
+</Highlight> are my favorite colors.
 
 Eu posso escrever **Markdown** ao lado de meu _JSX_!
 
 ## Tabs
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 <Tabs>
   <TabItem value="apple" label="Apple" default>
@@ -80,13 +87,21 @@ import TabItem from '@theme/TabItem';
 ### Sincronizando opções de guia
 
 <Tabs groupId="operating-systems">
-  <TabItem value="win" label="Windows">Use Ctrl + C to copy.</TabItem>
-  <TabItem value="mac" label="macOS">Use Command + C to copy.</TabItem>
+  <TabItem value="win" label="Windows">
+    Use Ctrl + C to copy.
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    Use Command + C to copy.
+  </TabItem>
 </Tabs>
 
 <Tabs groupId="operating-systems">
-  <TabItem value="win" label="Windows">Use Ctrl + V to paste.</TabItem>
-  <TabItem value="mac" label="macOS">Use Command + V to paste.</TabItem>
+  <TabItem value="win" label="Windows">
+    Use Ctrl + V to paste.
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    Use Command + V to paste.
+  </TabItem>
 </Tabs>
 
 ## Blocos de código
@@ -96,6 +111,19 @@ function HelloCodeTitle(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 ```
+
+## Tabela de props
+
+import { TableProps } from "@site/src/components";
+
+<TableProps
+  title="Table props"
+  rows={[
+    ["name", "string", "Componente", "Nome do componente"],
+    ["children", "node", "-", "Conteúdo do componente"],
+    ["className", "string", "-", "Classe CSS"],
+  ]}
+/>
 
 ## Editor de código interativo
 
