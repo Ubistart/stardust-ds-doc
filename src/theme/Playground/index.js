@@ -64,21 +64,29 @@ function ThemedLiveEditor() {
     />
   );
 }
-function EditorWithHeader() {
+function EditorWithHeader({ title }) {
   return (
     <>
       <Header>
-        <Translate
-          id="theme.Playground.liveEditor"
-          description="The live editor label of the live codeblocks">
-          Live Editor
-        </Translate>
+        {
+          title || (
+            <Translate
+              id="theme.Playground.liveEditor"
+              description="The live editor label of the live codeblocks">
+              Live Editors
+            </Translate>
+          )
+        }
       </Header>
       <ThemedLiveEditor />
     </>
   );
 }
 export default function Playground({ children, transformCode, ...props }) {
+  const newMetaString = props.metastring.replace('live ', '')
+  const params = new URLSearchParams(newMetaString)
+  const title = params.get('title')
+
   const {
     siteConfig: { themeConfig },
   } = useDocusaurusContext();
@@ -97,11 +105,11 @@ export default function Playground({ children, transformCode, ...props }) {
         {playgroundPosition === 'top' ? (
           <>
             <ResultWithHeader />
-            <EditorWithHeader />
+            <EditorWithHeader title={title} />
           </>
         ) : (
           <>
-            <EditorWithHeader />
+            <EditorWithHeader title={title} />
             <ResultWithHeader />
           </>
         )}

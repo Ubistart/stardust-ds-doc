@@ -25,6 +25,14 @@ const sidebar = [
       'react-js/getting-started/installation',
       'react-js/getting-started/usage',
     ]
+  },
+  {
+    type: 'category',
+    label: 'Componentes',
+    collapsed: true,
+    items: [
+      'react-js/components/button',
+    ]
   }
 ];
 
