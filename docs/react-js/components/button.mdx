@@ -7,12 +7,97 @@
 
 Componente de botão para executar evento ou ações. Pode ser usado para submeter formulários, abrir links, etc.
 
+## Exemplos
+
 ```tsx live title=Exemplo de botão base
-function MyPlayground(props) {
+function Base(props) {
   return (
     <div>
-      <Button>Botão exemplo</Button>
+      <Button>Button</Button>
     </div>
   );
 }
 ```
+
+```tsx live title=Variantes
+function Variants(props) {
+  return (
+    <div>
+      <Typography type="h3">Primary</Typography>
+
+      <div className="row">
+        <Button variant="primary">Primary</Button>
+
+        <Button variant="primary" disabled>
+          Button - disabled
+        </Button>
+      </div>
+
+      <Typography type="h3">Secondary</Typography>
+
+      <div className="row">
+        <Button variant="secondary">Button</Button>
+
+        <Button variant="secondary" disabled>
+          Button - disabled
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+```tsx live title=Com ícones
+function Loading(props) {
+  return (
+    <div className="row">
+      <Button iconLeft={<DownloadIcon />}>Button</Button>
+
+      <Button iconRight={<DownloadIcon />}>Button</Button>
+    </div>
+  );
+}
+```
+
+```tsx live title=Botão customizado
+function Loading(props) {
+  return (
+    <div className="row">
+      <Button
+        typographyProps={{ fontWeight: "light", type: "p2", color: "aqua" }}
+        bWidth="hairline"
+        bColor="aqua"
+        bStyle="solid"
+      >
+        Button
+      </Button>
+
+      <Button
+        labelColor="black"
+        bgColor="green"
+        bWidth="hairline"
+        bColor="red"
+        bStyle="solid"
+      >
+        Button
+      </Button>
+    </div>
+  );
+}
+```
+
+## Props
+
+import { TableProps } from "@site/src/components";
+
+<TableProps
+  title="Props do componente Button"
+  rows={[
+    ["children", "node", "-", "Conteúdo do componente"],
+    ["labelColor", "string", "-", "Cor da label"],
+    ["bgColor", "string", "-", "Cor de fundo"],
+    ["bWidth", "string", "-", "With da borda"],
+    ["bColor", "string", "-", "Cor da borda"],
+    ["bStyle", "string", "-", "Estilo da borda"],
+  ]}
+/>

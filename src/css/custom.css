@@ -39,3 +39,14 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.row {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
