@@ -10,7 +10,8 @@
  */
 
 // @ts-check
-
+const gettingStarted = "react-js/getting-started";
+const components = "react-js/components";
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig['']} */
 const sidebar = [
   {
@@ -22,17 +23,17 @@ const sidebar = [
       id: "react-js/getting-started/index",
     },
     items: [
-      "react-js/getting-started/installation",
-      "react-js/getting-started/customize-theme",
-      "react-js/getting-started/adding-types",
-      "react-js/getting-started/usage",
+      `${gettingStarted}/installation`,
+      `${gettingStarted}/customize-theme`,
+      `${gettingStarted}/adding-types`,
+      `${gettingStarted}/usage`,
     ],
   },
   {
     type: "category",
     label: "Componentes",
     collapsed: true,
-    items: ["react-js/components/button"],
+    items: [`${components}/button`],
   },
 ];
 
