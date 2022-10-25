@@ -33,7 +33,7 @@ const sidebar = [
     type: "category",
     label: "Componentes",
     collapsed: true,
-    items: [`${components}/button`],
+    items: [`${components}/button`, `${components}/input`],
   },
 ];
 
