@@ -1,5 +1,6 @@
-import * as StardustComponents from '@stardust-ds/react';
-import React from 'react';
+import * as StardustComponents from "@stardust-ds/react";
+import * as phosphorIcons from "phosphor-react";
+import React from "react";
 
 import DownloadIcon from "@site/static/img/DownloadIcon";
 
@@ -9,5 +10,6 @@ const ReactLiveScope = {
   ...React,
   DownloadIcon,
   ...StardustComponents,
+  ...phosphorIcons,
 };
 export default ReactLiveScope;
