@@ -14,26 +14,26 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig['']} */
 const sidebar = [
   {
-    type: 'category',
-    label: 'Primeiros passos',
+    type: "category",
+    label: "Primeiros passos",
     collapsed: false,
     link: {
-      type: 'doc',
-      id: 'react-js/getting-started/index',
+      type: "doc",
+      id: "react-js/getting-started/index",
     },
     items: [
-      'react-js/getting-started/installation',
-      'react-js/getting-started/usage',
-    ]
+      "react-js/getting-started/installation",
+      "react-js/getting-started/customize-theme",
+      "react-js/getting-started/adding-types",
+      "react-js/getting-started/usage",
+    ],
   },
   {
-    type: 'category',
-    label: 'Componentes',
+    type: "category",
+    label: "Componentes",
     collapsed: true,
-    items: [
-      'react-js/components/button',
-    ]
-  }
+    items: ["react-js/components/button"],
+  },
 ];
 
 module.exports = sidebar;
