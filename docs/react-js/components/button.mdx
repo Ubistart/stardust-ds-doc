@@ -5,86 +5,91 @@
   description: Componente de botão
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 Componente de botão para executar evento ou ações. Pode ser usado para submeter formulários, abrir links, etc.
+**Obs.:** Todos os exemplos são editávies.
 
-## Exemplos
+<Tabs groupId='button-component'>
+<TabItem value='Uso' label='Uso'>
 
-```tsx live title=Exemplo de botão base
-function Base(props) {
-  return (
-    <div>
-      <Button>Button</Button>
-    </div>
-  );
-}
+## Uso
+
+```tsx live
+<Button>Button</Button>
 ```
 
-```tsx live title=Variantes
-function Variants(props) {
-  return (
-    <div>
-      <Typography type="h3">Primary</Typography>
+### Variações do botão
 
-      <div className="row">
-        <Button variant="primary">Primary</Button>
+Use a propriedade `variant` para alterar o estilo visual do Button. Você pode definir o valor como `primary` e `secondary`.
 
-        <Button variant="primary" disabled>
-          Button - disabled
-        </Button>
-      </div>
-
-      <Typography type="h3">Secondary</Typography>
-
-      <div className="row">
-        <Button variant="secondary">Button</Button>
-
-        <Button variant="secondary" disabled>
-          Button - disabled
-        </Button>
-      </div>
-    </div>
-  );
-}
+```tsx live
+<div className="row">
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Button</Button>
+</div>
 ```
 
-```tsx live title=Com ícones
-function Loading(props) {
+### Botão com propriedade `bgColor`
+
+Use a propriedade bgColor para alterar a cor do `Button`. Você pode definir o valor para qualquer uma das cores do seu sistema de design.
+
+```tsx live
+function example(props) {
+  const { brand } = useTheme();
   return (
     <div className="row">
-      <Button iconLeft={<DownloadIcon />}>Button</Button>
-
-      <Button iconRight={<DownloadIcon />}>Button</Button>
+      <Button bgColor={brand.color.primary.pure}>Primary</Button>
+      <Button bgColor={brand.color.secondary.pure}>Secondary</Button>
+      <Button bgColor={brand.color.positive.pure}>Positive</Button>
+      <Button bgColor={brand.color.negative.pure}>Negative</Button>
     </div>
   );
 }
 ```
 
-```tsx live title=Botão customizado
-function Loading(props) {
-  return (
-    <div className="row">
-      <Button
-        typographyProps={{ fontWeight: "light", type: "p2", color: "aqua" }}
-        bWidth="hairline"
-        bColor="aqua"
-        bStyle="solid"
-      >
-        Button
-      </Button>
+### Botão com ícones
 
-      <Button
-        labelColor="black"
-        bgColor="green"
-        bWidth="hairline"
-        bColor="red"
-        bStyle="solid"
-      >
-        Button
-      </Button>
-    </div>
-  );
-}
+Você pode adicionar ícones esquerdo e direito ao componente `Button` usando as propriedades iconLeft e iconRight respectivamente.
+
+```tsx live
+<div className="row">
+  <Button iconLeft={<DownloadIcon />}>Button</Button>
+  <Button iconRight={<DownloadIcon />}>Button</Button>
+</div>
 ```
+
+### Botão customizado
+
+Você também pode criar seu próprio botão customizado.
+
+```tsx live
+<div className="row">
+  <Button
+    typographyProps={{ fontWeight: "light", type: "p2", color: "aqua" }}
+    bWidth="hairline"
+    bColor="aqua"
+    bStyle="solid"
+  >
+    Button
+  </Button>
+
+  <Button
+    labelColor="black"
+    bgColor="green"
+    bWidth="hairline"
+    bColor="red"
+    bStyle="solid"
+  >
+    Button
+  </Button>
+</div>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
 
 ## Props
 
@@ -101,3 +106,6 @@ import { TableProps } from "@site/src/components";
     ["bStyle", "string", "-", "Estilo da borda"],
   ]}
 />
+
+</TabItem>
+</Tabs>
