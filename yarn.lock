@@ -2879,10 +2879,10 @@
   dependencies:
     lodash.mergewith "^4.6.2"
 
-"@stardust-ds/react@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.3.2.tgz#96eaf20629ed3b3e63f214d297c1181f911cbee9"
-  integrity sha512-jXKzxgnpDGmz8Hr8oLtLzDb5z6QtUwAHTMzQnn7RW8B2otgxwshVo8rhawACPim8nT6EKup4videjcLfRLTLhg==
+"@stardust-ds/react@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.4.5.tgz#dba51b495b57ef1ba8fd9a937eb05f38cb2f0dba"
+  integrity sha512-BswDwLlwBPV7mxIOFhejD9a33Xcqxwc500sgmhO9fpWscTN7ahV8FbqWqTG4qZ+lmHkKfxJUL/nThWuhAreulw==
   dependencies:
     "@popperjs/core" "^2.11.5"
     "@stardust-ds/core" "^0.3.2"
