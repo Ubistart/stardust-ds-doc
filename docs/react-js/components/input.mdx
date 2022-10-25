@@ -1,0 +1,165 @@
+---
+  id: input
+  displayed_sidebar: reactJsSidebar
+  title: Input
+  description: Componente de Input
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+**Obs.:** Todos os exemplos são editávies.
+
+- Ícones utilizados de [Phosphor Icons](https://phosphoricons.com/)
+
+<Tabs groupId='input-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Uso
+
+Exemplo de uso básico do componente de input:
+
+```tsx live
+<Input isFullWidth placeholder="Uso básico" />
+```
+
+### Input controlado
+
+```tsx live
+function example() {
+  const [value, setValue] = React.useState("");
+  const handleChange = (event) => setValue(event.target.value);
+
+  return (
+    <>
+      <Typography mb="8px">Value: {value}</Typography>
+      <Input
+        isFullWidth
+        value={value}
+        onChange={handleChange}
+        placeholder="Input controlado"
+        iconRight={!!value.length ? <X size={32} /> : null}
+        iconRightAction={() => setValue("")}
+      />
+    </>
+  );
+}
+```
+
+### Input com exemplo de senha
+
+Vamos usar esses componentes para criar um input com uma funcionalidade de mostrar/ocultar senha:
+
+```tsx live
+function example(props) {
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
+
+  const canSeePasswordIcon = !show ? (
+    <Eye size={32} weight="light" color="white" />
+  ) : (
+    <EyeSlash size={32} weight="light" />
+  );
+
+  return (
+    <Input
+      isFullWidth
+      type={show ? "text" : "password"}
+      placeholder="Input com exemplo de senha"
+      iconRight={canSeePasswordIcon}
+      iconRightAction={handleClick}
+    />
+  );
+}
+```
+
+### Input com icones
+
+Você pode adicionar ícones esquerdo e direito ao componente `Input` usando as propriedades iconLeft e iconRight respectivamente.
+
+```tsx live
+<div className="column">
+  <Input
+    isFullWidth
+    placeholder="Input com ícone a esquerda"
+    iconLeft={<UserCircle size={32} weight="fill" color="black" />}
+  />
+  <Input
+    isFullWidth
+    placeholder="Input com ícone a direita"
+    iconRight={<UserCircle size={32} weight="fill" color="black" />}
+  />
+</div>
+```
+
+### Input com Label e helper text
+
+```tsx live
+<Input
+  label="Label"
+  helperText="Helper Text"
+  isFullWidth
+  placeholder="Input com label e helper text"
+/>
+```
+
+### Input com erro
+
+```tsx live
+<Input
+  isFullWidth
+  hasError
+  placeholder="Input com erro"
+  helperText="Helper Text"
+/>
+```
+
+### Input customizado
+
+Você também pode criar seu próprio input customizado.
+
+```tsx live
+<Input
+  isFullWidth
+  placeholder="Input customizado"
+  bWidth="hairline"
+  bColor="black"
+  bStyle="dashed"
+/>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Propriedades
+
+<TableProps
+  title="Componente Input"
+  rows={[
+    ["label", "string", "-", ""],
+    ["helperText", "string", "-", ""],
+    ["iconLeft", "SVG", "-", "Aceita um ícone SVG"],
+    ["iconRight", "SVG", "-", "Aceita um ícone SVG"],
+    [
+      "iconLeftAction",
+      "function",
+      "-",
+      "Caso exista iconLeft você pode passar uma função",
+    ],
+    [
+      "iconRighttAction",
+      "function",
+      "-",
+      "Caso exista iconRight você pode passar uma função",
+    ],
+    ["hasError", "boolean", "false", "true/false"],
+    ["isFullWidth", "boolean", "false", "true/false"],
+    ["bWidth", "string", "-", "Largura da borda"],
+    ["bColor", "string", "-", "Cor da borda"],
+    ["bStyle", "string", "-", "Estilo da borda"],
+  ]}
+/>
+</TabItem>
+</Tabs>
