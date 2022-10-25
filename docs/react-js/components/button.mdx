@@ -32,6 +32,26 @@ Use a propriedade `variant` para alterar o estilo visual do Button. Você pode d
 </div>
 ```
 
+### Button com toda a largura preenchida
+
+```tsx live
+function example() {
+  const [isFullWidth, setIsFullWidth] = useState(false);
+  return (
+    <>
+      <div className="row" style={{ alignItems: "center" }}>
+        <Switch checked={isFullWidth} onChange={setIsFullWidth} />
+        <Typography type="l1">Preencher toda a largura</Typography>
+      </div>
+
+      <Button mTop="xxxs" isFullWidth={isFullWidth}>
+        Button
+      </Button>
+    </>
+  );
+}
+```
+
 ### Button com propriedade `bgColor`
 
 Use a propriedade bgColor para alterar a cor do `Button`. Você pode definir o valor para qualquer uma das cores do seu sistema de design.
@@ -99,9 +119,10 @@ Você também pode criar seu próprio botão customizado.
   rows={[
     ["children", "node", "-", "Conteúdo do componente"],
     ["variant", "string", "primary", "primary/secondary"],
+    ["isFullWidth", "boolean", "false", "true/false"],
     ["labelColor", "string", "-", "Cor da label"],
     ["bgColor", "string", "-", "Cor de fundo"],
-    ["bWidth", "string", "-", "With da borda"],
+    ["bWidth", "string", "-", "Largura da borda"],
     ["bColor", "string", "-", "Cor da borda"],
     ["bStyle", "string", "-", "Estilo da borda"],
   ]}
