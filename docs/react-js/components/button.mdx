@@ -7,6 +7,7 @@
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
 
 Componente de botão para executar evento ou ações. Pode ser usado para submeter formulários, abrir links, etc.
 **Obs.:** Todos os exemplos são editávies.
@@ -20,7 +21,7 @@ Componente de botão para executar evento ou ações. Pode ser usado para submet
 <Button>Button</Button>
 ```
 
-### Variações do botão
+### Button com variações
 
 Use a propriedade `variant` para alterar o estilo visual do Button. Você pode definir o valor como `primary` e `secondary`.
 
@@ -31,7 +32,7 @@ Use a propriedade `variant` para alterar o estilo visual do Button. Você pode d
 </div>
 ```
 
-### Botão com propriedade `bgColor`
+### Button com propriedade `bgColor`
 
 Use a propriedade bgColor para alterar a cor do `Button`. Você pode definir o valor para qualquer uma das cores do seu sistema de design.
 
@@ -49,7 +50,7 @@ function example(props) {
 }
 ```
 
-### Botão com ícones
+### Button com icones
 
 Você pode adicionar ícones esquerdo e direito ao componente `Button` usando as propriedades iconLeft e iconRight respectivamente.
 
@@ -60,7 +61,7 @@ Você pode adicionar ícones esquerdo e direito ao componente `Button` usando as
 </div>
 ```
 
-### Botão customizado
+### Button customizado
 
 Você também pode criar seu próprio botão customizado.
 
@@ -91,14 +92,13 @@ Você também pode criar seu próprio botão customizado.
 
 <TabItem value='Propriedades' label='Propriedades'>
 
-## Props
-
-import { TableProps } from "@site/src/components";
+## Propriedades
 
 <TableProps
-  title="Props do componente Button"
+  title="Componente Button"
   rows={[
     ["children", "node", "-", "Conteúdo do componente"],
+    ["variant", "string", "primary", "primary/secondary"],
     ["labelColor", "string", "-", "Cor da label"],
     ["bgColor", "string", "-", "Cor de fundo"],
     ["bWidth", "string", "-", "With da borda"],
