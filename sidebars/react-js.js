@@ -38,6 +38,7 @@ const sidebar = [
       `${components}/input`,
       `${components}/checkbox`,
       `${components}/radio`,
+      `${components}/switch`,
     ],
   },
 ];
