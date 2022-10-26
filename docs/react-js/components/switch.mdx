@@ -26,7 +26,7 @@ Exemplo de uso básico do componente de switch:
 
 ```tsx live
 function example() {
-  const [isChecked, setIsChecked] = useState("1");
+  const [isChecked, setIsChecked] = useState(true);
 
   return (
     <div className="row" style={{ alignItems: "center" }}>
@@ -46,7 +46,7 @@ Passe a propriedade `size` para alterar o tamanho do Switch.
 ```tsx live
 function example() {
   const [size, setSize] = useState("large");
-  const [isChecked, setIsChecked] = useState("1");
+  const [isChecked, setIsChecked] = useState(false);
 
   function handleChangeSize(e) {
     setSize(e.currentTarget.value);
