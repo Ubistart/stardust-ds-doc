@@ -45,7 +45,7 @@ function example() {
         value={value}
         onChange={handleChange}
         placeholder="Input controlado"
-        iconRight={!!value.length ? <X size={32} /> : null}
+        iconRight={!!value.length ? <PhosphorIcons.X size={32} /> : null}
         iconRightAction={() => setValue("")}
       />
     </>
@@ -63,9 +63,9 @@ function example(props) {
   const handleClick = () => setShow(!show);
 
   const canSeePasswordIcon = !show ? (
-    <Eye size={32} weight="light" color="white" />
+    <PhosphorIcons.Eye size={32} weight="light" color="white" />
   ) : (
-    <EyeSlash size={32} weight="light" />
+    <PhosphorIcons.EyeSlash size={32} weight="light" />
   );
 
   return (
@@ -89,12 +89,16 @@ Você pode adicionar ícones esquerdo e direito ao componente `Input` usando as 
   <Input
     isFullWidth
     placeholder="Input com ícone a esquerda"
-    iconLeft={<UserCircle size={32} weight="fill" color="black" />}
+    iconLeft={
+      <PhosphorIcons.UserCircle size={32} weight="fill" color="black" />
+    }
   />
   <Input
     isFullWidth
     placeholder="Input com ícone a direita"
-    iconRight={<UserCircle size={32} weight="fill" color="black" />}
+    iconRight={
+      <PhosphorIcons.UserCircle size={32} weight="fill" color="black" />
+    }
   />
 </div>
 ```
