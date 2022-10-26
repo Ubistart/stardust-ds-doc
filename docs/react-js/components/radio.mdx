@@ -1,0 +1,159 @@
+---
+  id: radio
+  displayed_sidebar: reactJsSidebar
+  title: Radio
+  description: Componente de Radio
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+**Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='radio-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Radio } from "@stardust-ds/react";
+```
+
+## Uso
+
+Exemplo de uso básico do componente de radio:
+
+```tsx live
+function example() {
+  const [value, setValue] = useState("1");
+
+  function handleChange(e) {
+    setValue(e.currentTarget.value);
+  }
+
+  return (
+    <div className="column">
+      <div className="row" style={{ alignItems: "center" }}>
+        <Radio
+          checked={value === "1"}
+          id="1"
+          value="1"
+          onChange={handleChange}
+        />
+        <Typography type="l1">Radio 1</Typography>
+      </div>
+      <div className="row" style={{ alignItems: "center" }}>
+        <Radio
+          checked={value === "2"}
+          id="2"
+          value="2"
+          onChange={handleChange}
+        />
+        <Typography type="l1">Radio 2</Typography>
+      </div>
+    </div>
+  );
+}
+```
+
+### Radio desabilitado
+
+```tsx live
+function example() {
+  const [value, setValue] = useState("1");
+
+  function handleChange(e) {
+    setValue(e.currentTarget.value);
+  }
+
+  return (
+    <div className="column">
+      <div className="row" style={{ alignItems: "center" }}>
+        <Radio
+          disabled
+          checked={value === "1"}
+          id="1"
+          value="1"
+          onChange={handleChange}
+        />
+        <Typography type="l1">Radio 1</Typography>
+      </div>
+      <div className="row" style={{ alignItems: "center" }}>
+        <Radio
+          checked={value === "2"}
+          id="2"
+          value="2"
+          onChange={handleChange}
+        />
+        <Typography type="l1">Radio 2</Typography>
+      </div>
+      <div className="row" style={{ alignItems: "center" }}>
+        <Radio
+          checked={value === "3"}
+          id="3"
+          value="3"
+          onChange={handleChange}
+        />
+        <Typography type="l1">Radio 3</Typography>
+      </div>
+    </div>
+  );
+}
+```
+
+### Radio customizado
+
+Você também pode criar seu próprio radio customizado.
+
+```tsx live
+function example() {
+  const [value, setValue] = useState("1");
+
+  function handleChange(e) {
+    setValue(e.currentTarget.value);
+  }
+
+  return (
+    <div className="column">
+      <div className="row" style={{ alignItems: "center" }}>
+        <Radio
+          checked={value === "1"}
+          id="1"
+          value="1"
+          onChange={handleChange}
+          activeColor="red"
+          inactiveColor="red"
+        />
+        <Typography type="l1">Radio 1</Typography>
+      </div>
+      <div className="row" style={{ alignItems: "center" }}>
+        <Radio
+          checked={value === "2"}
+          id="2"
+          value="2"
+          onChange={handleChange}
+          activeColor="green"
+        />
+        <Typography type="l1">Radio 2</Typography>
+      </div>
+    </div>
+  );
+}
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Propriedades
+
+<TableProps
+  title="Componente Radio"
+  rows={[
+    ["activeColor", "string", "theme.brand.color.primary.pure", "Qualquer cor"],
+    ["inactiveColor", "string", "theme.neutrals.pureBlack", "Qualquer cor"],
+  ]}
+/>
+</TabItem>
+</Tabs>
