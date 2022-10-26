@@ -31,3 +31,14 @@ Esta biblioteca possui vários pacotes, esta estrutura se reflete estrutura da d
 As _sidebars_ refletem a mesma lógica, estão separadas por bibliotecas dentro da pasta `sidebars`.
 
 Portanto, para adicionar uma nova documentação, você precisará inserir a página dentro da pasta `docs` e popular o arquivo da sidebar pertinente à documentação em questão.
+
+### Roadmap
+
+[x] - Button
+[x] - Input
+[x] - Checkbox
+[x] - Radio
+[ ] - Switch
+[ ] - Select
+[ ] - Badge
+[ ] - Tag
