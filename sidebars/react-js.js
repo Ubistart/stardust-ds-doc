@@ -10,22 +10,36 @@
  */
 
 // @ts-check
-
+const gettingStarted = "react-js/getting-started";
+const components = "react-js/components";
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig['']} */
 const sidebar = [
   {
-    type: 'category',
-    label: 'Primeiros passos',
+    type: "category",
+    label: "Primeiros passos",
     collapsed: false,
     link: {
-      type: 'doc',
-      id: 'react-js/getting-started/index',
+      type: "doc",
+      id: "react-js/getting-started/index",
     },
     items: [
-      'react-js/getting-started/installation',
-      'react-js/getting-started/usage',
-    ]
-  }
+      `${gettingStarted}/installation`,
+      `${gettingStarted}/customize-theme`,
+      `${gettingStarted}/adding-types`,
+      `${gettingStarted}/usage`,
+    ],
+  },
+  {
+    type: "category",
+    label: "Componentes",
+    collapsed: true,
+    items: [
+      `${components}/button`,
+      `${components}/input`,
+      `${components}/checkbox`,
+      `${components}/radio`,
+    ],
+  },
 ];
 
 module.exports = sidebar;

@@ -1,0 +1,90 @@
+---
+  id: checkbox
+  displayed_sidebar: reactJsSidebar
+  title: Checkbox
+  description: Componente de Checkbox
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+**Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='checkbox-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Checkbox } from "@stardust-ds/react";
+```
+
+## Uso
+
+Exemplo de uso básico do componente de checkbox:
+
+```tsx live
+function example() {
+  const [isChecked, setIsChecked] = useState(true);
+  return (
+    <div className="row" style={{ alignItems: "center" }}>
+      <Checkbox
+        checked={isChecked}
+        // FIXME: Ajustar onChange do checkbox (devolver true/false)
+        onChange={() => setIsChecked(!isChecked)}
+      />
+      <Typography type="l1">Checkbox</Typography>
+    </div>
+  );
+}
+```
+
+### Checkbox customizado
+
+Você também pode criar seu próprio checkbox customizado.
+
+```tsx live
+function example() {
+  const [isChecked, setIsChecked] = useState(true);
+  return (
+    <div className="row">
+      <div className="row" style={{ alignItems: "center" }}>
+        <Checkbox
+          checked={isChecked}
+          activeColor="red"
+          inactiveColor="red"
+          iconColor="black"
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Typography type="l1">Checkbox</Typography>
+      </div>
+      <div className="row" style={{ alignItems: "center" }}>
+        <Checkbox
+          checked={isChecked}
+          iconColor="red"
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Typography type="l1">Checkbox</Typography>
+      </div>
+    </div>
+  );
+}
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Propriedades
+
+<TableProps
+  title="Componente Checkbox"
+  rows={[
+    ["activeColor", "string", "theme.brand.color.primary.pure", "Qualquer cor"],
+    ["inactiveColor", "string", "theme.neutrals.pureBlack", "Qualquer cor"],
+    ["iconColor", "string", "theme.neutrals.pureWhite", "Qualquer cor"],
+  ]}
+/>
+</TabItem>
+</Tabs>
