@@ -39,6 +39,6 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
 [x] - Checkbox
 [x] - Radio
 [x] - Switch
-[ ] - Select
+[x] - Select
 [ ] - Badge
 [ ] - Tag

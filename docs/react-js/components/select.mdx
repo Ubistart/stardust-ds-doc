@@ -1,0 +1,194 @@
+---
+  id: select
+  displayed_sidebar: reactJsSidebar
+  title: Select
+  description: Componente de Select
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+**Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='select-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Select } from "@stardust-ds/react";
+```
+
+## Uso
+
+Exemplo de uso básico do componente de select:
+
+```tsx live
+<Select options={SELECT_OPTIONS.COLORS} placeholder="Selecione uma cor" />
+```
+
+### Select controlado
+
+```tsx live
+function example() {
+  const [option, setOption] = React.useState({});
+
+  return (
+    <>
+      <Typography mBottom="xxxs">Opção: {JSON.stringify(option)}</Typography>
+      <Select
+        options={SELECT_OPTIONS.COLORS}
+        value={option}
+        onSelect={(e) => setOption(e || {})}
+        placeholder="Select controlado"
+      />
+    </>
+  );
+}
+```
+
+### Select com seções
+
+É possível também criar seções de opções, ou seja, seção de cidades e cores.
+
+```tsx live
+<Select placeholder="Selecione uma opção" options={SELECT_OPTIONS.SECTIONS} />
+```
+
+### Select com multi seleção
+
+```tsx live
+<Select
+  placeholder="Selecione uma ou mais opções"
+  options={SELECT_OPTIONS.SECTIONS}
+  multiSelect
+/>
+```
+
+### Select com pesquisa
+
+```tsx live
+<Select
+  placeholder="Select com pesquisa"
+  options={SELECT_OPTIONS.SECTIONS}
+  multiSelect
+  searchable
+/>
+```
+
+### Select sem opção de limpar o item selecionado
+
+```tsx live
+<Select
+  placeholder="Select sem opção de limpeza"
+  options={SELECT_OPTIONS.SECTIONS}
+  multiSelect
+  clearable={false}
+/>
+```
+
+### Select com label e helper text
+
+```tsx live
+<Select
+  label="Label"
+  helperText="Helper Text"
+  placeholder="Selecione uma opção"
+  options={SELECT_OPTIONS.SECTIONS}
+  noOptionsText="Nenhuma opção encontrada"
+/>
+```
+
+### Select com erro
+
+```tsx live
+<Select
+  label="Label"
+  helperText="Helper Text"
+  hasError
+  placeholder="Selecione uma opção"
+  options={SELECT_OPTIONS.SECTIONS}
+  noOptionsText="Nenhuma opção encontrada"
+/>
+```
+
+### Select sem nenhuma opção
+
+```tsx live
+<Select
+  placeholder="Selecione uma opção"
+  options={[]}
+  noOptionsText="Nenhuma opção encontrada"
+/>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Propriedades
+
+### Interface de opções
+
+```tsx
+interface Option {
+  label: string;
+  value: string;
+}
+```
+
+### Interface de opções com seções
+
+```tsx
+interface Section {
+  section: string;
+  options: Option[];
+}
+```
+
+### Propriedades
+
+<TableProps
+  title="Componente Select"
+  rows={[
+    ["label", "string", "-", "Opcional"],
+    ["helperText", "string", "-", "Opcional"],
+    ["placeholder", "string", "-", "Opcional"],
+    ["options", "Partial<Option> & Partial<Section>", "-", "Obrigatório"],
+    ["value", "Option | Option[]", "-", "Opcional"],
+    ["defaultValue", "Option | Option[]", "-", "Opcional"],
+    [
+      "onSelect",
+      "(value: Option) => void",
+      "-",
+      "Opcional (Trás a opção selecionada)",
+    ],
+    [
+      "onClear",
+      "() => void",
+      "-",
+      "Opcional (Realizar alguma ação após limpar o campo)",
+    ],
+    ["noOptionsText", "string", "-", "Opcional"],
+    ["multiSelect", "boolean", "false", "Opcional"],
+    ["disabled", "boolean", "false", "Opcional"],
+    [
+      "scrollYAtHeight",
+      "string | number",
+      "240",
+      "Opcional (Tamanho da listagem ao abrir o select)",
+    ],
+    [
+      "clearable",
+      "boolean",
+      "true",
+      "Opcional (Apresentar X para limpar o campo)",
+    ],
+    ["searchable", "boolean", "false", "Opcional"],
+    ["hasError", "boolean", "false", "Opcional"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>
