@@ -1,0 +1,139 @@
+---
+  id: switch
+  displayed_sidebar: reactJsSidebar
+  title: Switch
+  description: Componente de Switch
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+**Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='switch-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Switch } from "@stardust-ds/react";
+```
+
+## Uso
+
+Exemplo de uso básico do componente de switch:
+
+```tsx live
+function example() {
+  const [isChecked, setIsChecked] = useState(true);
+
+  return (
+    <div className="row" style={{ alignItems: "center" }}>
+      <Typography type="l1" htmlFor="email-alerts">
+        Habilitar alertas por e-mail?
+      </Typography>
+      <Switch checked={isChecked} onChange={(e) => setIsChecked(e)} />
+    </div>
+  );
+}
+```
+
+### Switch variações
+
+Passe a propriedade `size` para alterar o tamanho do Switch.
+
+```tsx live
+function example() {
+  const [size, setSize] = useState("large");
+  const [isChecked, setIsChecked] = useState(false);
+
+  function handleChangeSize(e) {
+    setSize(e.currentTarget.value);
+  }
+
+  return (
+    <div className="column" style={{ justifyContent: "center" }}>
+      <div className="row">
+        <div className="row">
+          <Radio
+            checked={size === "small"}
+            id="small"
+            value="small"
+            onChange={handleChangeSize}
+          />
+          <Typography type="l1" htmlFor="small">
+            Small
+          </Typography>
+        </div>
+        <div className="row">
+          <Radio
+            checked={size === "large"}
+            id="large"
+            value="large"
+            onChange={handleChangeSize}
+          />
+          <Typography type="l1" htmlFor="large">
+            Large
+          </Typography>
+        </div>
+      </div>
+      <div className="row" style={{ alignItems: "center" }}>
+        <Typography type="l1" htmlFor="email-alerts">
+          Habilitar alertas por e-mail?
+        </Typography>
+        <Switch
+          id="email-alerts"
+          size={size}
+          checked={isChecked}
+          onChange={(e) => setIsChecked(e)}
+        />
+      </div>
+    </div>
+  );
+}
+```
+
+### Switch customizado
+
+Você também pode criar seu próprio switch customizado.
+
+```tsx live
+function example() {
+  const [isChecked, setIsChecked] = useState(true);
+
+  return (
+    <div className="row" style={{ alignItems: "center" }}>
+      <Switch
+        disabled
+        bgColor="green"
+        size="small"
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e)}
+      />
+
+      <Switch
+        disabled
+        bgColor="red"
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e)}
+      />
+    </div>
+  );
+}
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Propriedades
+
+<TableProps
+  title="Componente Switch"
+  rows={[
+    ["bgColor", "string", "theme.brand.color.primary.pure", "Qualquer cor"],
+  ]}
+/>
+</TabItem>
+</Tabs>
