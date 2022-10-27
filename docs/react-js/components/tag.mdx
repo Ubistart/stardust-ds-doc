@@ -1,0 +1,132 @@
+---
+  id: tag
+  displayed_sidebar: reactJsSidebar
+  title: Tag
+  description: Componente de tag
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+O componente Tag é usado para itens que precisam ser rotulados, categorizados ou organizados usando palavras-chave que os descrevem.
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='tag-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Tag } from "@stardust-ds/react";
+```
+
+## Uso
+
+```tsx live
+<Tag label="Tag" />
+```
+
+### Tag com variações
+
+Use a propriedade `variant` para alterar o estilo visual do Tag. Você pode definir o valor como `primary`, `secondary` e `tertiary`.
+
+```tsx live
+<div className="row">
+  <Tag label="primary" variant="primary" />
+  <Tag label="secondary" variant="secondary" />
+  <Tag label="tertiary" variant="tertiary" />
+</div>
+```
+
+### Tag com ícones
+
+Você pode adicionar ícones do lado esquerdo e direito ao componente `Tag` usando as propriedades iconLeft e iconRight respectivamente.
+
+- **Obs.:** Também existe as propriedades `hasIconLeft` e `hasIconRight` que por padrão é um CloseIcon.
+
+```tsx live
+<div className="row">
+  <Tag
+    label="primary"
+    variant="primary"
+    iconLeft={<PhosphorIcons.User size={32} weight="fill" />}
+  />
+  <Tag
+    label="secondary"
+    variant="secondary"
+    hasIconRight
+    onClose={() => alert("Clicou no ícone direito")}
+  />
+  <Tag
+    label="tertiary"
+    variant="tertiary"
+    hasIconLeft
+    onClose={() => alert("Clicou no ícone esquerdo")}
+  />
+</div>
+```
+
+### Tag customizado
+
+Você também pode criar sua própria tag customizada. Também é possível customizar o label através da propriedade `labelTypographyProps`.
+
+```tsx live
+<div className="row">
+  <Tag label="Tag" bgColor="white" labelColor="black" />
+  <Tag
+    label="Tag"
+    bgColor="purple"
+    labelColor="white"
+    labelTypographyProps={{ type: "p4" }}
+  />
+  <Tag
+    label="Tag"
+    labelColor="red"
+    height={50}
+    bRadius="md"
+    mLeft="md"
+    labelTypographyProps={{ fontWeight: "black" }}
+    iconLeft={<PhosphorIcons.User size={32} weight="fill" />}
+  />
+</div>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { TagProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+<TableProps
+  title="Componente Tag"
+  rows={[
+    ["label", "string", "-", "Obrigatória"],
+    ["variant", "string", "primary", "primary/secondary/tertiary"],
+    ["labelColor", "string", "positive", "Opcional"],
+    ["bgColor", "string", "-", "Opcional"],
+    ["bRadius", "string", "theme.borderRadius.xs", "Opcional"],
+    ["height", "number/string", "theme.fixedHeight.sm", "Opcional"],
+    ["hasIconLeft", "boolean", "false", "Opcional"],
+    ["hasIconRight", "boolean", "false", "Opcional"],
+    ["iconLeft", "SVG", "-", "Opcional"],
+    ["iconRight", "SVG", "-", "Opcional"],
+    ["onClose", "function", "-", "Opcional"],
+    [
+      "labelTypographyProps",
+      "object",
+      "-",
+      "Opcional (Todas as variações de typography)",
+    ],
+  ]}
+/>
+
+</TabItem>
+</Tabs>

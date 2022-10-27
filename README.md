@@ -41,4 +41,5 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
 [x] - Switch
 [x] - Select
 [x] - Badge
-[ ] - Tag
+[x] - Tag
+[ ] - Typography
