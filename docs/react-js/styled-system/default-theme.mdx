@@ -1,0 +1,327 @@
+---
+  id: default-theme
+  displayed_sidebar: reactJsSidebar
+  title: Tema Padrão
+  description: Temão padrão do @stardust-ds/react
+---
+
+import { ColorSquare } from "@site/src/components";
+import { TableProps } from "@site/src/components";
+
+# Tema padrão
+
+O objeto de tema é onde você define a paleta de cores da sua aplicação, tipografia, espaçamentos, valores de border, width/height, e muito mais.
+
+## Cores
+
+Adicione um objeto `theme.colors` ou `theme.neutrals` para fornecer cores para seu projeto. Por padrão, essas cores podem ser referenciadas por color, neutrals, bColor, bgColor, etc...
+
+```tsx
+import { extendTheme } from "@stardust-ds/react";
+
+// theme.ts
+export default extendTheme({
+  neutrals: {
+    gray1: "#CCC",
+    pureBlack: "#000",
+    pureWhite: "#FFF",
+  },
+
+  colors: {
+    transparent: "transparent",
+    primary: {
+      pure: "red",
+    },
+    // ...
+  },
+});
+```
+
+### Black & White
+
+Disponível em `theme.neutrals`
+
+<ColorSquare
+  colors={[
+    { color: "black", hex: "#000000", label: "Pure Black" },
+    { color: "white", hex: "#ffffff", label: "Pure White" },
+  ]}
+/>
+
+### Gray
+
+Disponível em `theme.neutrals`
+
+<ColorSquare
+  colors={[
+    { color: "#F2F5F8", hex: "#F2F5F8", label: "Gray1" },
+    { color: "#E9EBEE", hex: "#E9EBEE", label: "Gray2" },
+    { color: "#CCD1D6", hex: "#CCD1D6", label: "Gray3" },
+    { color: "#ACB4BA", hex: "#ACB4BA", label: "Gray4" },
+    { color: "#737D86", hex: "#737D86", label: "Gray5" },
+    { color: "#5A646E", hex: "#5A646E", label: "Gray6" },
+    { color: "#3B454F", hex: "#3B454F", label: "Gray7" },
+    { color: "#22272D", hex: "#22272D", label: "Gray8" },
+    { color: "#13161A", hex: "#13161A", label: "Gray9" },
+    { color: "#080A0D", hex: "#080A0D", label: "Gray10" },
+  ]}
+/>
+
+### Primary
+
+Disponível em `theme.brand.color.primary`
+
+<ColorSquare
+  colors={[
+    { color: "#2600FF", hex: "#2600FF", label: "pure" },
+    { color: "#E9E5FF", hex: "#E9E5FF", label: "lighter" },
+    { color: "#BBAFFF", hex: "#BBAFFF", label: "light" },
+    { color: "#3D28BA", hex: "#3D28BA", label: "medium" },
+    { color: "#140277", hex: "#140277", label: "dark" },
+    { color: "#140277", hex: "#140277", label: "darker" },
+  ]}
+/>
+
+### Secondary
+
+Disponível em `theme.brand.color.secondary`
+
+<ColorSquare
+  colors={[
+    { color: "#FF005C", hex: "#FF005C", label: "pure" },
+    { color: "#FFE5EF", hex: "#FFE5EF", label: "lighter" },
+    { color: "#FFAFCD", hex: "#FFAFCD", label: "light" },
+    { color: "#BA285D", hex: "#BA285D", label: "medium" },
+    { color: "#77022D", hex: "#77022D", label: "dark" },
+    { color: "#330113", hex: "#330113", label: "darker" },
+  ]}
+/>
+
+### Highlight
+
+Disponível em `theme.brand.color.highlight`
+
+<ColorSquare
+  colors={[
+    { color: "#FF0C55", hex: "#FF0C55", label: "pure" },
+    { color: "#FFBACF", hex: "#FFBACF", label: "light" },
+    { color: "#CC0A44", hex: "#CC0A44", label: "medium" },
+    { color: "#680522", hex: "#680522", label: "dark" },
+  ]}
+/>
+
+### Negative
+
+Disponível em `theme.brand.color.negative`
+
+<ColorSquare
+  colors={[
+    { color: "#FF3541", hex: "#FF3541", label: "pure" },
+    { color: "#FFBEC2", hex: "#FFBEC2", label: "light" },
+    { color: "#BE3A42", hex: "#BE3A42", label: "medium" },
+    { color: "#7A252A", hex: "#7A252A", label: "dark" },
+  ]}
+/>
+
+### Positive
+
+Disponível em `theme.brand.color.positive`
+
+<ColorSquare
+  colors={[
+    { color: "#1ECB4F", hex: "#1ECB4F", label: "pure" },
+    { color: "#B0E1BD", hex: "#B0E1BD", label: "light" },
+    { color: "#1D8D3C", hex: "#1D8D3C", label: "medium" },
+    { color: "#125A26", hex: "#125A26", label: "dark" },
+  ]}
+/>
+
+### Status
+
+Disponível em `theme.brand.color.status`
+
+<ColorSquare
+  colors={[
+    { color: "#1ECB4F", hex: "#1ECB4F", label: "positive" },
+    { color: "#FFAE00", hex: "#FFAE00", label: "alert" },
+    { color: "#FF3541", hex: "#FF3541", label: "negative" },
+    { color: "#0066FF", hex: "#0066FF", label: "neutral1" },
+    { color: "#3B454F", hex: "#3B454F", label: "neutral2" },
+    { color: "#B83EE3", hex: "#B83EE3", label: "neutral3" },
+    { color: "#00344A", hex: "#00344A", label: "neutral4" },
+  ]}
+/>
+
+## Tipografia
+
+Para gerenciar as opções de Tipografia, o objeto de tema suporta as seguintes chaves:
+
+- fontSize
+- types
+  - title (h1-h7)
+  - label (l1-l6)
+  - text (p1-p4)
+
+<TableProps
+  title=" "
+  headers={["Chave", "Valor"]}
+  rows={[
+    ["xxxs", "12px"],
+    ["xxs", "14px"],
+    ["xs", "16px"],
+    ["sm", "18px"],
+    ["md", "20px"],
+    ["lg", "24px"],
+    ["xl", "32px"],
+    ["xxl", "40px"],
+    ["xxxl", "48px"],
+    ["display", "64px"],
+    ["giant", "80px"],
+  ]}
+/>
+
+```tsx
+import { extendTheme } from "@stardust-ds/react";
+
+// theme.ts
+export default extendTheme({
+  title: {
+    h1: {
+      fontSize: fontSizeBuilder.xl,
+      lineHeight: 40,
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: fontSizeBuilder.lg,
+      lineHeight: 30,
+      fontWeight: 700,
+    },
+    h3: {
+      fontSize: fontSizeBuilder.md,
+      lineHeight: 25,
+      fontWeight: 700,
+    },
+    h4: {
+      fontSize: fontSizeBuilder.md,
+      lineHeight: 25,
+      fontWeight: 400,
+    },
+    h5: {
+      fontSize: fontSizeBuilder.sm,
+      lineHeight: 27,
+      fontWeight: 700,
+    },
+    h6: {
+      fontSize: fontSizeBuilder.xs,
+      lineHeight: 24,
+      fontWeight: 700,
+    },
+    h7: {
+      fontSize: fontSizeBuilder.xs,
+      lineHeight: 24,
+      fontWeight: 600,
+      letterSpacing: 1,
+    },
+  },
+  label: {
+    l1: {
+      fontSize: fontSizeBuilder.xs,
+      lineHeight: 16,
+      fontWeight: 500,
+    },
+    l2: {
+      fontSize: fontSizeBuilder.xxs,
+      lineHeight: 17.5,
+      fontWeight: 500,
+    },
+    l3: {
+      fontSize: fontSizeBuilder.xxs,
+      lineHeight: 14,
+      fontWeight: 700,
+    },
+    l4: {
+      fontSize: fontSizeBuilder.xxxs,
+      lineHeight: 12,
+      fontWeight: 600,
+    },
+    l5: {
+      fontSize: fontSizeBuilder.xxxs,
+      lineHeight: 12,
+      fontWeight: 500,
+    },
+    l6: {
+      fontSize: fontSizeBuilder.xxxs,
+      lineHeight: 12,
+      fontWeight: 700,
+    },
+  },
+  text: {
+    p1: {
+      fontSize: fontSizeBuilder.xs,
+      lineHeight: 20,
+      fontWeight: 400,
+    },
+    p2: {
+      fontSize: fontSizeBuilder.xxs,
+      lineHeight: 21,
+      fontWeight: 400,
+    },
+    p3: {
+      fontSize: fontSizeBuilder.xxxs,
+      lineHeight: 18,
+      fontWeight: 400,
+    },
+    p4: {
+      fontSize: fontSizeBuilder.xxxs,
+      lineHeight: 15,
+      fontWeight: 400,
+      fontStyle: "italic",
+    },
+  },
+});
+```
+
+## Espaçamento
+
+As Chaves de espaçamento permite que você personalize o espaçamento global e a escala de dimensionamento para seu projeto. Por padrão, esses valores de espaçamento podem ser referenciados pelo preenchimento, margem e estilos superior, esquerdo, direito e inferior.
+
+<TableProps
+  title=" "
+  headers={["Chave", "Valor"]}
+  rows={[
+    ["quark", "4px"],
+    ["nano", "8px"],
+    ["xxxs", "16px"],
+    ["xxs", "24px"],
+    ["xs", "32px"],
+    ["sm", "40px"],
+    ["md", "48px"],
+    ["lg", "56px"],
+    ["xl", "64px"],
+    ["xxl", "80px"],
+    ["xxxl", "120px"],
+    ["huge", "160px"],
+    ["giant", "200px"],
+  ]}
+/>
+
+## Tamanhos (width/height)
+
+As Chaves de tamanhos permite personalizar o dimensionamento global dos componentes que você cria para o seu projeto. Por padrão, esses valores de tamanhos podem ser referenciados pelos estilos height, width e maxWidth, minWidth, maxHeight, minHeight.
+
+<TableProps
+  title=" "
+  headers={["Chave", "Valor"]}
+  rows={[
+    ["nano", "16px"],
+    ["xxs", "18px"],
+    ["xs", "24px"],
+    ["sm", "32px"],
+    ["md", "40px"],
+    ["lg", "44px"],
+    ["xl", "56px"],
+    ["xxl", "64px"],
+    ["xxxl", "72px"],
+    ["giant", "96px"],
+  ]}
+/>
