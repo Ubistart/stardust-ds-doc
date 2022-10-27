@@ -11,6 +11,7 @@
 
 // @ts-check
 const gettingStarted = "react-js/getting-started";
+const styledSystem = "react-js/styled-system";
 const components = "react-js/components";
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig['']} */
 const sidebar = [
@@ -28,6 +29,12 @@ const sidebar = [
       `${gettingStarted}/adding-types`,
       `${gettingStarted}/usage`,
     ],
+  },
+  {
+    type: "category",
+    label: "Sistema de estilização",
+    collapsed: false,
+    items: [`${styledSystem}/style-props`],
   },
   {
     type: "category",
