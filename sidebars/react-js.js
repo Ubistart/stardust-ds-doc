@@ -40,6 +40,7 @@ const sidebar = [
       `${components}/radio`,
       `${components}/switch`,
       `${components}/select`,
+      `${components}/badge`,
     ],
   },
 ];

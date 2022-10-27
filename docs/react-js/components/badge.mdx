@@ -1,0 +1,130 @@
+---
+  id: badge
+  displayed_sidebar: reactJsSidebar
+  title: Badge
+  description: Componente de badge
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Os badges são usados ​​para destacar o status de um item para reconhecimento rápido.
+**Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='badge-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Badge } from "@stardust-ds/react";
+```
+
+## Uso
+
+```tsx live
+<div className="row">
+  <Badge label="Badge" />
+</div>
+```
+
+### Badge com esquema de cores
+
+Use a propriedade `colorScheme` para alterar a cor de fundo do Badge. Você pode definir o valor como `negative`, `alert`, `neutral1`, etc...
+
+```tsx live
+<div className="column">
+  <div className="row">
+    <Badge label="filled" colorScheme="negative" variant="filled" />
+    <Badge label="flat" colorScheme="negative" variant="flat" />
+    <Badge label="light" colorScheme="negative" variant="light" />
+  </div>
+  <div className="row">
+    <Badge label="filled" colorScheme="alert" variant="filled" />
+    <Badge label="flat" colorScheme="alert" variant="flat" />
+    <Badge label="light" colorScheme="alert" variant="light" />
+  </div>
+  <div className="row">
+    <Badge label="filled" colorScheme="neutral1" variant="filled" />
+    <Badge label="flat" colorScheme="neutral2" variant="flat" />
+    <Badge label="light" colorScheme="neutral3" variant="light" />
+  </div>
+</div>
+```
+
+### Badge com variações
+
+Use a propriedade `variant` para alterar o estilo visual do Badge. Você pode definir o valor como `filled`, `flat` e `light`.
+
+```tsx live
+<div className="row">
+  <Badge label="filled" variant="filled" />
+  <Badge label="flat" variant="flat" />
+  <Badge label="light" variant="light" />
+</div>
+```
+
+### Badge customizado
+
+Você também pode criar seu próprio badge customizado. Também é possível customizar o label através da propriedade `typographyProps`.
+
+```tsx live
+<div className="row">
+  <Badge
+    label="filled"
+    bgColor="black  "
+    typographyProps={{ color: "white" }}
+    variant="filled"
+  />
+  <Badge
+    label="flat"
+    bgColor="purple"
+    typographyProps={{ color: "black" }}
+    variant="flat"
+  />
+  <Badge
+    label="light"
+    bgColor="black"
+    bColor="black"
+    bWidth="thick"
+    bStyle="dashed"
+    typographyProps={{ color: "black" }}
+    variant="light"
+  />
+</div>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { BadgeProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+<TableProps
+  title="Componente Badge"
+  rows={[
+    ["label", "string", "-", "Obrigatória"],
+    ["variant", "string", "filled", "filled/flat/light"],
+    ["colorScheme", "string", "positive", "Opcional"],
+    ["bgColor", "string", "-", "Opcional"],
+    ["bWidth", "string", "-", "Opcional"],
+    ["bColor", "string", "-", "Opcional"],
+    ["bStyle", "string", "-", "Opcional"],
+    [
+      "typographyProps",
+      "object",
+      "-",
+      "Opcional (Todas as variações de typography)",
+    ],
+  ]}
+/>
+
+</TabItem>
+</Tabs>
