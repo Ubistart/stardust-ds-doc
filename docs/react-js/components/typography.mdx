@@ -1,0 +1,132 @@
+---
+  id: typography
+  displayed_sidebar: reactJsSidebar
+  title: Typography
+  description: Componente de typography
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Typography é utilizado para renderizar as tags html `p`, `label` e `h` em uma interface.
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='typography-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Typography } from "@stardust-ds/react";
+```
+
+## Uso
+
+A propriedade `type` tem como padrão a variação `h2`.
+
+```tsx live
+<Typography>Typography</Typography>
+```
+
+### Typography com variações
+
+Use a propriedade `type` para alterar o estilo visual do Typography. Você pode definir o valor como `h1`, `l1`, `p1`, etc...
+
+```tsx live
+<div className="column">
+  <div className="row">
+    <Typography type="h1">Typography H1</Typography>
+    <Typography type="h2">Typography H2</Typography>
+    <Typography type="h3">Typography H3</Typography>
+  </div>
+  <div className="row">
+    <Typography type="p1">Typography P1</Typography>
+    <Typography type="p2">Typography P2</Typography>
+    <Typography type="p3">Typography P3</Typography>
+  </div>
+  <div className="row">
+    <Typography type="l1">Typography L1</Typography>
+    <Typography type="l2">Typography L2</Typography>
+    <Typography type="l3">Typography L3</Typography>
+  </div>
+</div>
+```
+
+### Typography customizado
+
+Você também pode criar seu próprio typography customizado.
+
+```tsx live
+<div className="row">
+  <Typography color="red">Typography</Typography>
+  <Typography color="blue" fontSize="xs" lineHeight="lg">
+    Typography
+  </Typography>
+  <Typography color="purple" fontWeight="normal">
+    Typography
+  </Typography>
+</div>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { TypographyProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+### type
+
+- Opções possíveis com a propriedade `type`, lembrando que por padrão é `h2`.
+
+```tsx
+export type TypographyTypes =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "l1"
+  | "l2"
+  | "l3"
+  | "l4"
+  | "l5"
+  | "l6"
+  | "p1"
+  | "p2"
+  | "p3"
+  | "p4";
+```
+
+### textAlign
+
+- Opções possíveis com a propriedade `textAlign`, lembrando que por padrão é `left`.
+
+```tsx
+"left" | "center" | "right" | "justify";
+```
+
+<TableProps
+  title="Componente Typography"
+  rows={[
+    ["children", "node", "-", "Conteúdo do componente"],
+    ["color", "string", "black", "Opcional"],
+    ["type", "string", "h2", "Opcional"],
+    ["fontSize", "string", "-", "Opcional"],
+    ["fontWeight", "string", "-", "Opcional"],
+    ["lineHeight", "string", "-", "Opcional"],
+    ["textAlign", "string", "left", "Opcional"],
+    ["fontStyle", "string", "-", "Opcional"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>

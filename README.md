@@ -34,12 +34,13 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
 
 ### Roadmap
 
-[x] - Button
-[x] - Input
-[x] - Checkbox
-[x] - Radio
-[x] - Switch
-[x] - Select
-[x] - Badge
-[x] - Tag
-[ ] - Typography
+- Form
+  [x] - Button
+  [x] - Input
+  [x] - Checkbox
+  [x] - Radio
+  [x] - Switch
+  [x] - Select
+  [x] - Badge
+  [x] - Tag
+  [x] - Typography
