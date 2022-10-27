@@ -44,3 +44,13 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
   [x] - Badge
   [x] - Tag
   [x] - Typography
+
+- Styled System
+  [x] - Style Props
+  - Default Theme
+    [ ] - Colors
+    [ ] - Typography
+    [ ] - Spacing
+    [ ] - Sizes
+    [ ] - Border Radius
+    [ ] - Border Radius

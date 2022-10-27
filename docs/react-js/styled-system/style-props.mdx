@@ -1,0 +1,112 @@
+---
+  id: style-props
+  displayed_sidebar: reactJsSidebar
+  title: Propriedades de estilização
+  description: Propriedades de estilização do @stardust-ds/react
+---
+
+import { TableProps } from "@site/src/components";
+
+Propriedades de estilização são maneiras de alterar o estilo de um componente simplesmente passando propriedades para ele. Economizando tempo fornecendo formas abreviadas e úteis de estilizar seus componentes.
+
+### Referência
+
+As tabelas a seguir mostram listas de cada propriedade de estilo e as propriedades dentro de cada grupo.
+
+### Margin e Padding
+
+```tsx
+import { Typography } from "@stardust-ds/react";
+
+// mTop="nano" refere-se ao valor de 8px;
+<Typography mTop="nano">Typography</Typography>;
+
+// pTop="nano" refere-se ao valor de 8px;
+<Typography pTop="nano">Typography</Typography>;
+```
+
+<TableProps
+  title=" "
+  headers={["Propriedade", "Propriedade CSS"]}
+  rows={[
+    ["mTop", "margin-top"],
+    ["mRight", "margin-right"],
+    ["mBottom", "margin-bottom"],
+    ["mLeft", "margin-left"],
+    ["mx", "margin-left + margin-right"],
+    ["my", "margin-top + margin-bottom"],
+    ["pTop", "padding-top"],
+    ["pRight", "padding-right"],
+    ["pBottom", "padding-bottom"],
+    ["pLeft", "padding-left"],
+    ["px", "padding-left + padding-right"],
+    ["py", "padding-top + padding-bottom"],
+  ]}
+/>
+
+### Color e background color
+
+```tsx
+import { Typography, Badge } from "@stardust-ds/react";
+
+<Typography color="red">Typography</Typography>;
+
+<Badge bgColor="red" label="Badge" />;
+```
+
+<TableProps
+  title=" "
+  headers={["Propriedade", "Propriedade CSS"]}
+  rows={[
+    ["color", "color"],
+    ["labelColor", "color"],
+    ["bgColor", "background-color"],
+    ["bgOpacity", "opacity"],
+  ]}
+/>
+
+### Layout, width and height
+
+```tsx
+import { Select } from "@stardust-ds/react";
+
+<Select width={200} options={[]} />;
+```
+
+<TableProps
+  title=" "
+  headers={["Propriedade", "Propriedade CSS"]}
+  rows={[
+    ["height", "height"],
+    ["maxHeight", "max-height"],
+    ["minHeight", "min-height"],
+    ["width", "width"],
+    ["maxWidth", "max-width"],
+    ["minWidth", "min-width"],
+  ]}
+/>
+
+### Borders
+
+```tsx
+import { Badge } from "@stardust-ds/react";
+
+<Badge
+  label="Badge"
+  bWidth="thick"
+  bColor="red"
+  bStyle="dashed"
+  bRadius="md"
+/>;
+```
+
+<TableProps
+  title=" "
+  headers={["Propriedade", "Propriedade CSS"]}
+  rows={[
+    ["bWidth", "border-width"],
+    ["bColor", "border-color"],
+    ["bStyle", "border-style"],
+    ["bRadius", "border-radius"],
+  ]}
+/>
