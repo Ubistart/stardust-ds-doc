@@ -48,9 +48,9 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
 - Styled System
   [x] - Style Props
   - Default Theme
-    [ ] - Colors
-    [ ] - Typography
-    [ ] - Spacing
-    [ ] - Sizes
-    [ ] - Border Radius
-    [ ] - Border Radius
+    [x] - Colors
+    [x] - Typography
+    [x] - Spacing
+    [x] - Sizes
+    [x] - Border Radius
+    [x] - Border Width

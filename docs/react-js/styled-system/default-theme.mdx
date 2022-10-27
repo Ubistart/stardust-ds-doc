@@ -305,23 +305,35 @@ As Chaves de espaçamento permite que você personalize o espaçamento global e 
   ]}
 />
 
-## Tamanhos (width/height)
+## Border Radius
 
-As Chaves de tamanhos permite personalizar o dimensionamento global dos componentes que você cria para o seu projeto. Por padrão, esses valores de tamanhos podem ser referenciados pelos estilos height, width e maxWidth, minWidth, maxHeight, minHeight.
+As Chaves de `bRadius` permite personalizar o radio da borda global dos componentes que você cria para o seu projeto.
 
 <TableProps
   title=" "
   headers={["Chave", "Valor"]}
   rows={[
-    ["nano", "16px"],
-    ["xxs", "18px"],
-    ["xs", "24px"],
-    ["sm", "32px"],
-    ["md", "40px"],
-    ["lg", "44px"],
-    ["xl", "56px"],
-    ["xxl", "64px"],
-    ["xxxl", "72px"],
-    ["giant", "96px"],
+    ["none", "0px"],
+    ["xs", "4px"],
+    ["sm", "8px"],
+    ["md", "16px"],
+    ["lg", "24px"],
+    ["pill", "500px"],
+  ]}
+/>
+
+## Border Width
+
+As Chaves de `bWidth` permite personalizar o tamanho das bordas global dos componentes que você cria para o seu projeto.
+
+<TableProps
+  title=" "
+  headers={["Chave", "Valor"]}
+  rows={[
+    ["none", "0px"],
+    ["hairline", "1px"],
+    ["thin", "2px"],
+    ["thick", "4px"],
+    ["heavy", "8px"],
   ]}
 />
