@@ -34,7 +34,7 @@ const sidebar = [
     type: "category",
     label: "Sistema de estilização",
     collapsed: false,
-    items: [`${styledSystem}/style-props`],
+    items: [`${styledSystem}/style-props`, `${styledSystem}/default-theme`],
   },
   {
     type: "category",
