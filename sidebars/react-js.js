@@ -41,6 +41,7 @@ const sidebar = [
       `${components}/switch`,
       `${components}/select`,
       `${components}/badge`,
+      `${components}/tag`,
     ],
   },
 ];
