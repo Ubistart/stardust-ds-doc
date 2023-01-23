@@ -77,6 +77,32 @@ function example(props) {
 }
 ```
 
+### Button com propriedade `isLoading`
+
+Use a propriedade isLoading para indicar ao usuário que algo esta carregando.
+
+```tsx live
+function example(props) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(!isLoading);
+    }, 2000);
+
+    return () => {
+      clearInterval(timeout);
+    };
+  }, [isLoading]);
+
+  return (
+    <Button isLoading={isLoading} iconLeft={<DownloadIcon />}>
+      Download
+    </Button>
+  );
+}
+```
+
 ### Button com icones
 
 Você pode adicionar ícones esquerdo e direito ao componente `Button` usando as propriedades iconLeft e iconRight respectivamente.
@@ -133,6 +159,7 @@ import { ButtonProps } from "@stardust-ds/react";
     ["children", "node", "-", "Conteúdo do componente"],
     ["variant", "string", "primary", "primary/secondary"],
     ["isFullWidth", "boolean", "false", "true/false"],
+    ["isLoading", "boolean", "false", "true/false"],
     ["labelColor", "string", "-", "Cor da label"],
     ["bgColor", "string", "-", "Cor de fundo"],
     ["bWidth", "string", "-", "Largura da borda"],
