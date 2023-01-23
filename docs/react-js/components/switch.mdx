@@ -33,7 +33,11 @@ function example() {
       <Typography type="l1" htmlFor="email-alerts">
         Habilitar alertas por e-mail?
       </Typography>
-      <Switch checked={isChecked} onChange={(e) => setIsChecked(e)} />
+      <Switch
+        id="email-alerts"
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e)}
+      />
     </div>
   );
 }
@@ -138,7 +142,12 @@ import { SwitchProps } from "@stardust-ds/react";
 <TableProps
   title="Componente Switch"
   rows={[
+    ["id", "string", "", "Identificação única"],
     ["bgColor", "string", "theme.brand.color.primary.pure", "Qualquer cor"],
+    ["checked", "boolean", "false", "Define estado do componente"],
+    ["onChange", "function", "", "Retorna valor atual do componente"],
+    ["size", "string", "small/large", "Define tamanho do componente"],
+    ["disabled", "boolean", "false", "Desabilita o componente"],
   ]}
 />
 </TabItem>
