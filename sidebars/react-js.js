@@ -44,6 +44,7 @@ const sidebar = [
       `${components}/badge`,
       `${components}/button`,
       `${components}/checkbox`,
+      `${components}/datepicker`,
       `${components}/input`,
       `${components}/radio`,
       `${components}/select`,

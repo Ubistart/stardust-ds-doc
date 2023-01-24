@@ -44,6 +44,7 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
   [x] - Badge
   [x] - Tag
   [x] - Typography
+  [x] - Datepicker
 
 - Styled System
   [x] - Style Props
