@@ -1,0 +1,287 @@
+---
+  id: datepicker
+  displayed_sidebar: reactJsSidebar
+  title: DatePicker
+  description: Componente de DatePicker
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Componente de DatePicker para selecionar uma ou duas datas.
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='datepicker-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { DatePicker } from "@stardust-ds/react";
+```
+
+## Uso
+
+```tsx live
+<DatePicker />
+```
+
+### DatePicker hasEndDate.
+
+Use a propriedade `hasEndDate` poder selecionar data de início e fim.
+
+```tsx live
+<DatePicker hasEndDate />
+```
+
+### DatePicker com valores default
+
+```tsx live
+<DatePicker
+  hasEndDate
+  defaultValue={{ start: "2023-01-23", end: "2024-01-23" }}
+/>
+```
+
+### DatePicker com `initialDate`
+
+Use a propriedade initialDate para poder iniciar o picker na data X.
+
+```tsx live
+<DatePicker initialDate="2024-01-10" />
+```
+
+### DatePicker com `locale`
+
+Use a propriedade locale para alterar o idioma do componente.
+
+```tsx live
+<DatePicker locale="enUS" />
+```
+
+### DatePicker com `weekDays`
+
+Use a propriedade weekDays para alterar os dias da semana.
+
+```tsx live
+<DatePicker weekDays={["1º", "2º", "3º", "4º", "5º", "6º", "7º"]} />
+```
+
+### DatePicker com propriedades inputStartProps e inputEndProps`
+
+Use as propriedades inputStartProps e inputEndProps para alterar propriedades do `DatePicker`.
+Obs.: Aceita praticamente todas as props do componente [Input](http://localhost:3000/stardust-ds-doc/docs/react-js/components/input/).
+
+```tsx live
+<DatePicker
+  inputStartProps={{
+    label: "Start Date",
+    hasError: true,
+  }}
+  inputEndProps={{
+    label: "End Date",
+  }}
+  hasEndDate
+/>
+```
+
+### DatePicker customizado
+
+Você também pode criar seu próprio DatePicker customizado.
+
+```tsx live
+function example() {
+  const style = {
+    datePickerContainerStyle: {
+      backgroundColor: "#13161A",
+      borderRadius: 0,
+      borderColor: "#5A646E",
+    },
+    dayContainerStyle: {
+      selected: {
+        backgroundColor: "#FFAE00",
+        borderColor: "#FFAE00",
+        borderWidth: 0,
+        borderRadius: 0,
+      },
+      today: {
+        outlineColor: "#FFAE00",
+        color: "#FFAE00",
+        outlineWidth: 1,
+        outlineOffset: -1,
+        outlineStyle: "solid",
+        borderRadius: 0,
+      },
+    },
+    dayBetweenRangeContainerStyle: {
+      backgroundColor: "#FFAE0033",
+    },
+    dayTextStyle: {
+      sameMonth: { color: "#F2F5F8" },
+      differentMonth: { color: "#ACB4BA" },
+      selected: { color: "#FFFFFF" },
+      today: {
+        color: "#FFAE00",
+      },
+    },
+    weekTextStyle: {
+      color: "#ACB4BA",
+    },
+    headerTextStyle: {
+      color: "white",
+    },
+    headerIndicatorStyle: {
+      color: "white",
+    },
+    headerActionButtonStyle: {
+      arrowContainer: {
+        borderRadius: 0,
+        borderColor: "white",
+      },
+      arrowIcon: {
+        color: "white",
+      },
+    },
+  };
+
+  return <DatePicker hasEndDate style={style} />;
+}
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { DatePickerProps, DatePickerRef } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+```tsx
+type StartEndDate = { start?: string | Date; end?: string | Date };
+
+type OmittedInputProps = Omit<
+  InputProps,
+  "value" | "defaultValue" | "onChange"
+>;
+
+// Obs.:  Para criação de ref. Ex.: useRef(DatePickerRef)
+type DatePickerRef = {
+  setValues: (dates: Date[]) => void;
+  value: Date[];
+};
+```
+
+<TableProps
+  title="Componente DatePicker"
+  rows={[
+    ["defaultValue", "StartEndDate", "-", ""],
+    ["value", "StartEndDate", "-", ""],
+    [
+      "onChange",
+      "(dates: Date[])",
+      "-",
+      "Retorna array de datas após alteração",
+    ],
+    ["hasEndDate", "boolean", "false", "Adicionar campo com data final"],
+    ["initialDate", "Date", "-", "Iniciar picker na data X"],
+    [
+      "locale",
+      "string",
+      "ptBR",
+      "Aceita um locale, ex.: 'ptBR', 'enUS', etc...",
+    ],
+    [
+      "weekDays",
+      "string[]",
+      "-",
+      "Aceita array de string para alterar dias da semana",
+    ],
+    [
+      "locale",
+      "string",
+      "ptBR",
+      "Aceita um locale, ex.: 'ptBR', 'enUS', etc...",
+    ],
+    ["footer", "ReactNode", "-", "Aceita children"],
+    [
+      "inputStartProps",
+      "OmittedInputProps",
+      "-",
+      "Aceita quase todas as propriedades do input",
+    ],
+    [
+      "inputEndProps",
+      "OmittedInputProps",
+      "-",
+      "Aceita quase todas as propriedades do input",
+    ],
+  ]}
+/>
+
+Obs.: Aceita propriedades de [margin props](http://localhost:3000/stardust-ds-doc/docs/react-js/styled-system/style-props/#margin-e-padding). Ex.: mTop, mBottom, etc...
+
+Obs.: Propriedades de estilos aceitas. Segue [exemplo de Uso](http://localhost:3000/stardust-ds-doc/docs/react-js/components/datepicker/#datepicker-customizado)
+
+```tsx
+type DivStyleProps = CSSProperties;
+
+type TextStyle = {
+  color?: Color;
+  fontFamily?: string;
+  fontSize?: TypographyProps["fontSize"];
+  fontWeight?: TypographyProps["fontWeight"];
+};
+
+type DatePickerContainerStyle = {
+  datePickerContainerStyle?: DivStyleProps;
+};
+
+type HeaderIndicatorStyle = {
+  color?: Color;
+  size?: number;
+};
+
+type HeaderStyle = {
+  headerTextStyle?: TextStyle;
+  headerIndicatorStyle?: HeaderIndicatorStyle;
+  headerActionButtonStyle?: HeaderActionButtonStyle;
+};
+
+type HeaderActionButtonStyle = {
+  arrowIcon?: HeaderIndicatorStyle;
+  arrowContainer?: DivStyleProps;
+};
+
+type WeekTextStyle = {
+  weekTextStyle?: TextStyle;
+};
+
+type DayContainerStyle = {
+  selected?: DivStyleProps;
+  today?: DivStyleProps;
+  startRange?: DivStyleProps;
+  endRange?: DivStyleProps;
+};
+
+type DayOrYearStyle = {
+  dayContainerStyle?: DayContainerStyle;
+  dayBetweenRangeContainerStyle?: DivStyleProps;
+  dayTextStyle?: DayTextStyle;
+};
+
+type DayTextStyle = {
+  sameMonth: TextStyle;
+  differentMonth: TextStyle;
+  selected: TextStyle;
+  today: TextStyle;
+};
+```
+
+</TabItem>
+</Tabs>
