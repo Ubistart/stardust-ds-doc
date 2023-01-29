@@ -34,6 +34,8 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
 
 ### Roadmap
 
+- Current version 0.6.0
+
 - Form
   [x] - Button
   [x] - Input
@@ -45,6 +47,9 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
   [x] - Tag
   [x] - Typography
   [x] - Datepicker
+  [x] - Textarea
+  [] - Toast
+  [] - Link
 
 - Styled System
   [x] - Style Props

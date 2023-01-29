@@ -1,0 +1,151 @@
+---
+  id: textarea
+  displayed_sidebar: reactJsSidebar
+  title: Textarea
+  description: Componente de textarea
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='textarea-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Textarea } from "@stardust-ds/react";
+```
+
+## Uso
+
+```tsx live
+<Textarea placeholder="Exemplo de placeholder" />
+```
+
+### Textarea controlado
+
+```tsx live
+function Example() {
+  const [value, setValue] = React.useState("");
+
+  function handleInputChange(e) {
+    const inputValue = e.target.value;
+    setValue(inputValue);
+  }
+
+  return (
+    <>
+      <Typography mBottom="xxxs">Value: {value}</Typography>
+      <Textarea
+        value={value}
+        onChange={handleInputChange}
+        placeholder="Exemplo de placeholder"
+      />
+    </>
+  );
+}
+```
+
+### Textarea desabilitado
+
+```tsx live
+<Textarea disabled placeholder="Exemplo de placeholder" />
+```
+
+### Textarea com limite de caracteres
+
+```tsx live
+<Textarea maxLength={200} placeholder="Exemplo de placeholder" />
+```
+
+### Textarea com erro
+
+```tsx live
+<Textarea hasError placeholder="Exemplo de placeholder" />
+```
+
+### Textarea customizado
+
+Você também pode criar seu próprio textarea customizado.
+
+```tsx live
+<div className="row">
+  <Textarea
+    label="Label"
+    labelTypographyProps={{
+      color: "red",
+    }}
+    placeholder="Exemplo de placeholder"
+    height={100}
+  />
+  <Textarea
+    helperText="HelperText"
+    helperTypographyProps={{
+      color: "red",
+    }}
+    placeholder="Exemplo de placeholder"
+    height={100}
+  />
+  <Textarea
+    maxLength={100}
+    letterCounterTypography={{
+      color: "red",
+    }}
+    placeholder="Exemplo de placeholder"
+    height={100}
+  />
+  <Textarea
+    bColor="red"
+    _focus={{ bColor: "blue" }}
+    _hover={{ bColor: "green" }}
+    placeholder="Exemplo de placeholder"
+    height={100}
+    maxWidth={200}
+  />
+</div>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { TypographyProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+Aceita quase todas as propriedades do typographyProps.
+
+Aceita as propriedades de size, width, height, etc...
+
+Obs.: Também é possível passar todas as propriedades citadas nas seguintes props:
+
+```tsx
+  _hover={{}}
+  _focus={{}}
+  _active={{}}
+  _disabled={{}}
+```
+
+<TableProps
+  title="Componente Textarea"
+  rows={[
+    ["children", "node", "-", "Conteúdo do componente"],
+    ["label", "string", "-", "Opcional"],
+    ["helperText", "string", "-", "Opcional"],
+    ["maxLength", "number", "-", "Opcional"],
+    ["labelTypographyProps", "typographyProps", "-", "Opcional"],
+    ["helperTypographyProps", "typographyProps", "-", "Opcional"],
+    ["labelTypographyProps", "typographyProps", "-", "Opcional"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>
