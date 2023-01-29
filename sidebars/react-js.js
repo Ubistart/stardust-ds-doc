@@ -50,6 +50,7 @@ const sidebar = [
       `${components}/select`,
       `${components}/switch`,
       `${components}/tag`,
+      `${components}/textarea`,
       `${components}/typography`,
     ],
   },
