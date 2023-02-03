@@ -48,7 +48,7 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
   [x] - Typography
   [x] - Datepicker
   [x] - Textarea
-  [] - Toast
+  [x] - Toast
   [] - Link
 
 - Styled System
