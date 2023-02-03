@@ -2872,20 +2872,21 @@
     p-map "^4.0.0"
     webpack-sources "^3.2.2"
 
-"@stardust-ds/core@^0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@stardust-ds/core/-/core-0.3.4.tgz#dda141885881745a8fbd11d79e8d4f4442e03c3f"
-  integrity sha512-2pxKRwMv2KKt+SvfDjGtB3dzxdlHnBYk5n8aA2Zmm6KOWGFZYYzsACI3T8MbFLKH+t37BycwL0LNr8FHZyWqNw==
+"@stardust-ds/core@^0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@stardust-ds/core/-/core-0.3.5.tgz#a5abf1c0b0388c6f5e197cae2671bd503674bbc2"
+  integrity sha512-Sady3j4kD8B9BrHOc4Av6zewti4LsTwwKuU/PwnFT4WVdl2p/XswlFq61Y6y1e5H3svsEtZMg/hvjOS49QgEpQ==
   dependencies:
+    chroma-js "^2.4.2"
     lodash.mergewith "^4.6.2"
 
-"@stardust-ds/react@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.6.0.tgz#8e3df78bdfd376f343e644591915f0d3974e6b9a"
-  integrity sha512-OoC8NmF2VXng5JXfRyTMHJZ5c6/xS0TQwCFnl3rfo4zHYzJA4deHcMh9lSNgjh/2+Czo55JetUdUIVkTlc8lNw==
+"@stardust-ds/react@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.6.1.tgz#19b9a4066701085f797fbcb66b96d91a7b3e17e2"
+  integrity sha512-Wx+WgkLJr4zsBaAlAFlMYkaiMT1FYflhRSEwETB76IXNG/sTwqdEyIDHmVcTi6Pct2xfV/kJyuWaXmw7AyE+Xw==
   dependencies:
     "@popperjs/core" "^2.11.5"
-    "@stardust-ds/core" "^0.3.4"
+    "@stardust-ds/core" "^0.3.5"
     chroma-js "^2.1.2"
     date-fns "^2.28.0"
     lodash.merge "^4.6.2"
@@ -4017,7 +4018,7 @@ chownr@^1.1.1:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
   integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
 
-chroma-js@^2.1.2:
+chroma-js@^2.1.2, chroma-js@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-2.4.2.tgz#dffc214ed0c11fa8eefca2c36651d8e57cbfb2b0"
   integrity sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==

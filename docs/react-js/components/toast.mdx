@@ -1,0 +1,415 @@
+---
+  id: toast
+  displayed_sidebar: reactJsSidebar
+  title: Toast
+  description: Componente de toast
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='toast-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { ToastContainer, toast } from "@stardust-ds/react";
+```
+
+## Uso
+
+:::important Importante
+Lembre-se de renderizar o `ToastContainer` uma vez no seu projeto. Se você não conseguir descobrir onde colocá-lo, renderizá-lo na raiz do projeto seria a melhor aposta.
+:::
+
+```tsx live
+function Example() {
+  function openToast() {
+    toast({
+      type: "success",
+      title: "Title",
+      description: "This is an example",
+    });
+  }
+
+  return (
+    <>
+      <ToastContainer />
+      <Button onClick={openToast}>Abrir Toast</Button>
+    </>
+  );
+}
+```
+
+### Toast customizado
+
+Exibe um componente personalizado em vez da visualização padrão do Toast.
+
+```tsx live
+function Example() {
+  function openToast() {
+    toast({
+      type: "error",
+      title: "Title",
+      description: "This is an example",
+      colorScheme: "purple",
+      position: "bottom-right",
+    });
+  }
+
+  return (
+    <>
+      <ToastContainer />
+      <Button onClick={openToast}>Abrir Toast</Button>
+    </>
+  );
+}
+```
+
+### Removendo Toasts
+
+```tsx live
+function Example() {
+  const lastToastId = useRef(null);
+
+  function openToast() {
+    const toastId = String(Math.floor(Math.random() * 100));
+    toast({
+      toastId,
+      type: "info",
+      title: "Title",
+      description: "This is an example",
+    });
+
+    lastToastId.current = toastId;
+  }
+
+  function removeToast(id = null) {
+    toast.dismiss(id);
+    lastToatId.current = null;
+  }
+
+  return (
+    <div className="row">
+      <ToastContainer />
+      <Button onClick={openToast}>Abrir Toast</Button>
+      <Button onClick={() => removeToast(lastToastId.current)}>
+        Remover último Toast
+      </Button>
+      <Button onClick={() => toast.dismiss()}>Remover todos os Toasts</Button>
+    </div>
+  );
+}
+```
+
+### Atualizar Toasts
+
+```tsx live
+function Example() {
+  function openToast() {
+    toast({
+      toastId: "id",
+      type: "info",
+      title: "Title",
+      description: "This is an example",
+    });
+  }
+
+  function updateToast() {
+    toast.update("id", {
+      type: "success",
+      title: "Updated Title",
+      description: "This is an update example",
+    });
+  }
+
+  return (
+    <div className="row">
+      <ToastContainer />
+      <Button onClick={openToast}>Abrir Toast</Button>
+      <Button onClick={updateToast}>Atualizar Toast</Button>
+    </div>
+  );
+}
+```
+
+### Tipos de Toast
+
+Você pode usar a propriedade `type` para alterar a cor de seus toasts.
+
+:::tip Opções da propriedade type
+As opções disponíves são: `success`, `error`, `info` e `warning`.
+:::
+
+```tsx live
+function Example() {
+  const types = {
+    success: "#1ECB4F",
+    error: "#FF3541",
+    info: "#0066FF",
+    warning: "#FFAE00",
+  };
+
+  function openToast(type) {
+    toast({
+      toastId: type,
+      type,
+      title: "Title",
+      description: "This is an example of type: " + type,
+    });
+  }
+
+  return (
+    <div className="row">
+      <div style={{ display: "flex", gap: 10 }}>
+        {Object.keys(types).map((type) => (
+          <Button
+            key={type}
+            bgColor={types[type]}
+            onClick={() => openToast(type)}
+          >
+            {type}
+          </Button>
+        ))}
+      </div>
+      <ToastContainer />
+    </div>
+  );
+}
+```
+
+### Alterando a posição do Toast
+
+Você pode usar a propriedade `position` para ajustar de onde seu Toast aparecerá.
+
+```tsx live
+function Example() {
+  const positions = [
+    "top-center",
+    "top-right",
+    "top-left",
+    "bottom-center",
+    "bottom-right",
+    "bottom-left",
+  ];
+
+  function openToast(position) {
+    toast({
+      toastId: position,
+      type: "info",
+      title: `${position} toast`,
+      position,
+    });
+  }
+
+  return (
+    <div className="row">
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+        {positions.map((position) => (
+          <Button onClick={() => openToast(position)}>
+            Abrir {position} toast
+          </Button>
+        ))}
+      </div>
+      <ToastContainer />
+    </div>
+  );
+}
+```
+
+:::tip Evitando duplicidade dos toasts
+Para evitar que um toast duplique, você pode passar a propriedade `toastId` durante a criação do toast.
+:::
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { ToastTypeOptions, ToastPosition } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+```tsx
+type ToastTypeOptions = "info" | "success" | "warning" | "error";
+
+type ToastPosition =
+  | "top-right"
+  | "top-center"
+  | "top-left"
+  | "bottom-right"
+  | "bottom-center"
+  | "bottom-left";
+```
+
+<TableProps
+  title="Componente Toast"
+  rows={[
+    ["onClose", "Function", "-", "Acionado quando toast fecha"],
+    ["onOpen", "Function", "-", "Acionado quando toast abre"],
+    ["type", "ToastTypeOptions", "success", "Tipo do toast"],
+    [
+      "toastId",
+      "string | number",
+      "-",
+      "Opcional, mas quando existente evita duplicidade, pode ser atualizado, etc...",
+    ],
+    ["title", "string", "-", "Opcional"],
+    ["description", "string", "-", "Opcional"],
+    [
+      "icon",
+      "false | JSX Element",
+      "-",
+      "Caso false o ícone é desabilitado. Caso JSX Element, o ícone é apresentado",
+    ],
+    [
+      "colorScheme",
+      "string",
+      "-",
+      "Opcinal, caso exista irá sobrescrever todas as cores de uma única vez",
+    ],
+    [
+      "bgColor",
+      "string",
+      "-",
+      "Altera cor de fundo e tem prioridade sobre o colorScheme",
+    ],
+    [
+      "bColor",
+      "string",
+      "-",
+      "Altera cor da borda e tem prioridade sobre o colorScheme",
+    ],
+    [
+      "bgIconColor",
+      "string",
+      "-",
+      "Altera cor de fundo do ícone e tem prioridade sobre o colorScheme",
+    ],
+    [
+      "progressBarColor",
+      "string",
+      "-",
+      "Altera cor da barra de progresso e tem prioridade sobre o colorScheme",
+    ],
+    [
+      "titleColor",
+      "string",
+      "-",
+      "Altera cor de texto do título e tem prioridade sobre o colorScheme",
+    ],
+    [
+      "descriptionColor",
+      "string",
+      "-",
+      "Altera cor de texto da descrição e tem prioridade sobre o colorScheme",
+    ],
+  ]}
+/>
+
+<TableProps
+  title="Componente Toast Container"
+  rows={[
+    [
+      "top",
+      "Spacing Key",
+      "-",
+      "Útil para dar espaçamento do topo. Evita tampar o navbar da aplicação",
+    ],
+    [
+      "bottom",
+      "Spacing Key",
+      "-",
+      "Útil para dar espaçamento do rodapé. Evita tampar o rodapé da aplicação",
+    ],
+    [
+      "newestOnTop",
+      "boolean",
+      "false",
+      "Caso true, os Toasts mais recentes ficaram em primeiro na lista",
+    ],
+    [
+      "limit",
+      "number",
+      "-",
+      "Número de Toasts a serem exibidos ao mesmo tempo",
+    ],
+    [
+      "bgColor",
+      "string",
+      "#FFFFFF",
+      "Cor de fundo dos Toasts. Útil para projetos com dark/light theme",
+    ],
+  ]}
+/>
+
+<TableProps
+  title="Propriedades compartilhadas entre os componentes de ToastContainer e Toast"
+  rows={[
+    [
+      "pauseOnHover",
+      "boolean",
+      "true",
+      "Quando o toast tiver ação de hover o tempo de exibição é pausado",
+    ],
+    [
+      "pauseOnFocusLoss",
+      "boolean",
+      "true",
+      "Quando estiver fora da aba onde o Toast é exibido o tempo é pausado",
+    ],
+    [
+      "closeOnClick",
+      "boolean",
+      "true",
+      "Fecha o Toast com ação de clique em qual lugar",
+    ],
+    [
+      "position",
+      "ToastTypeOptions",
+      "top-right",
+      "Altera posição de exibição do Toast",
+    ],
+    [
+      "hasCloseButton",
+      "boolean",
+      "true",
+      "Exibir/ocultar botão de fechar Toast",
+    ],
+    [
+      "hideProgressBar",
+      "boolean",
+      "false",
+      "Exibir/ocultar barra de progresso",
+    ],
+    ["draggable", "boolean", "true", "Permite movimento de arrastar"],
+    [
+      "draggableDirection",
+      "x | y",
+      "x",
+      "Direção para onde o Toast é arrastado",
+    ],
+    ["onClick", "Function", "-", "Ação disparada ao clicar no Toast"],
+    [
+      "rtl",
+      "boolean",
+      "false",
+      "Altera a exibição do toast da direita para esquerda e vice-versa",
+    ],
+  ]}
+/>
+
+:::tip Atenção.
+As propriedades setadas diretamente no Toast Container se tornarão o padrão do Toast.
+Propriedades setadas diretamente no Toast tem prioridade.
+:::
+
+</TabItem>
+</Tabs>

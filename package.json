@@ -21,7 +21,7 @@
     "@docusaurus/preset-classic": "^2.0.1",
     "@docusaurus/theme-live-codeblock": "^2.0.1",
     "@mdx-js/react": "^1.6.22",
-    "@stardust-ds/react": "^0.6.0",
+    "@stardust-ds/react": "^0.6.1",
     "clsx": "^1.1.1",
     "dedent": "^0.7.0",
     "object.fromentries": "^2.0.5",
