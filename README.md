@@ -49,7 +49,11 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
   [x] - Datepicker
   [x] - Textarea
   [x] - Toast
-  [] - Link
+  [X] - Link
+  [X] - Avatar
+  [ ] - Flex
+  [ ] - Box
+  [ ] - Skeleton
 
 - Styled System
   [x] - Style Props

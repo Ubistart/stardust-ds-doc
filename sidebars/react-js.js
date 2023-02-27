@@ -41,11 +41,13 @@ const sidebar = [
     label: "Componentes",
     collapsed: true,
     items: [
+      `${components}/avatar`,
       `${components}/badge`,
       `${components}/button`,
       `${components}/checkbox`,
       `${components}/datepicker`,
       `${components}/input`,
+      `${components}/link`,
       `${components}/radio`,
       `${components}/select`,
       `${components}/switch`,
