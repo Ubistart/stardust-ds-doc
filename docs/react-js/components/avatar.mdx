@@ -1,0 +1,172 @@
+---
+  id: avatar
+  displayed_sidebar: reactJsSidebar
+  title: Avatar
+  description: Componente de avatar
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='avatar-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Avatar } from "@stardust-ds/react";
+```
+
+## Uso
+
+```tsx live
+function example() {
+  const [imageUrl, setImageUrl] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+
+  return (
+    <div className="row">
+      <Avatar
+        isUpload
+        uploadText="Enviar foto de perfil"
+        fallback="https://http2.mlstatic.com/resources/frontend/statics/img-not-available/1.1.0/O.gif"
+        src={imageUrl}
+        isUploading={isUploading}
+        uploadingText="Carregando..."
+        alt="user avatar"
+        onChange={handlePreviewImage}
+        onRemove={() => setImageUrl("")}
+      />
+    </div>
+  );
+
+  function handlePreviewImage(event) {
+    if (event.target.files && event.target.files[0]) {
+      setIsUploading(true);
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target && event.target.result) {
+          setTimeout(() => {
+            setIsUploading(false);
+          }, 1000);
+          setImageUrl(event.target.result);
+        }
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    event.target.value = null;
+  }
+}
+```
+
+### Username
+
+```tsx live
+<Avatar username="Gabriel" />
+```
+
+### IsUploading
+
+```tsx live
+<Avatar isUploading uploadingText="Carregando..." />
+```
+
+### Edição e remoção
+
+```tsx live
+<Avatar
+  username="Gabriel"
+  onChange={() => alert("editar")}
+  onRemove={() => alert("remover")}
+/>
+```
+
+### Imagem de fallback
+
+```tsx live
+<Avatar
+  username="Gabriel"
+  src="invalid-image"
+  fallback="https://http2.mlstatic.com/resources/frontend/statics/img-not-available/1.1.0/O.gif"
+/>
+```
+
+### Avatar customizado
+
+```tsx live
+<Avatar
+  username="Gabriel"
+  bColor="red"
+  usernameTextProps={{ color: "red" }}
+  _hover={{ bColor: "black" }}
+/>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { AvatarProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+```tsx
+type OptionsProps = {
+  iconColor?: string;
+  icon?: JSX.Element;
+  bgColor?: string;
+  width?: SizeProps['width'];
+  height?: SizeProps['height'];
+  bRadius?: BorderProps['bRadius'];
+};
+
+// Editar ícones de editar e morever
+type optionsProps?: {
+    edit?: OptionsProps;
+    remove?: OptionsProps;
+};
+
+```
+
+<TableProps
+  title="Componente Avatar"
+  rows={[
+    ["src", "string", "-", "Opcional"],
+    ["fallback", "string", "-", "Opcional"],
+    ["username", "string", "-", "Opcional"],
+    ["isUploading", "boolean", "-", "false"],
+    ["isUpload", "boolean", "false", "Enviar foto de perfil"],
+    [
+      "onChange",
+      "function",
+      "-",
+      "Opcional (Necessário para editar a imagem atual)",
+    ],
+    [
+      "onRemove",
+      "function",
+      "-",
+      "Opcional (Necessário para remover a imagem atual)",
+    ],
+    ["usernameTextProps", "TypographyProps", "-", "Opcional"],
+    ["uploadingTextProps", "TypographyProps", "-", "Opcional"],
+    ["uploadTextProps", "TypographyProps", "-", "Opcional"],
+    ["uploadingText", "string", "-", "Opcional"],
+    ["iconColor", "string", "-", "Opcional"],
+    ["uploadText", "string", "-", "Opcional"],
+    ["uploadIcon", "JSX.Element", "-", "user csv"],
+    ["uploadingIcon", "JSX.Element", "-", "spinner csv"],
+    ["optionsProps", "optionsProps", "-", "Opcional"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>

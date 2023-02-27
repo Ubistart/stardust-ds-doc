@@ -1,0 +1,104 @@
+---
+  id: link
+  displayed_sidebar: reactJsSidebar
+  title: Link
+  description: Componente de link
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Link é um componente acessível para navegação.
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='link-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Link } from "@stardust-ds/react";
+```
+
+## Uso
+
+```tsx live
+<Link label="Stardust" />
+```
+
+### Link externo
+
+```tsx live
+<Link
+  isExternal
+  label="Stardust doc"
+  href="https://ubistart.github.io/stardust-ds-doc/"
+/>
+```
+
+### Link combinado com componente de `Typography`
+
+```tsx live
+<Typography type="p1">
+  {" "}
+  Utilize
+  <Link label="link" href="#" /> junto a textos
+</Typography>
+```
+
+### Utilizando com biblioteca de roteamento
+
+Para usar o Link com uma biblioteca de roteamento como React Router, tudo que você precisa fazer é passar a propriedade `as`.
+Ele substituirá a tag renderizada pelo Link de React Router.
+
+```tsx
+import { Link as RouterLink } from "react-router-dom";
+
+<Link as={RouterLink} label="Dashboard" to="/dashboard" />;
+```
+
+### Link customizado
+
+É possível customizar o label através da propriedade `labelTypographyProps`.
+
+```tsx live
+<Link
+  isExternal
+  label="Stardust doc"
+  href="https://ubistart.github.io/stardust-ds-doc/"
+  labelTypographyProps={{ color: "red", fontSize: "lg" }}
+/>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { LinkProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+<TableProps
+  title="Componente Link"
+  rows={[
+    ["label", "string", "-", "Obrigatória"],
+    ["labelTypographyProps", "TypographyProps", "-", "Opcional"],
+    [
+      "isExternal",
+      "boolean",
+      "false",
+      "Abrir link externo (necessário https://)",
+    ],
+    ["href", "string", "-", "Opcional (Funciona como tag <a/>)"],
+    ["to", "string", "-", "Opcional (Utiliza-se com propriedade 'as')"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>
