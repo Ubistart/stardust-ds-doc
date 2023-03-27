@@ -10,22 +10,31 @@
  */
 
 // @ts-check
+const gettingStarted = "react-native/getting-started";
+const components = "react-native/components";
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig['']} */
 const sidebar = [
   {
-    type: 'category',
-    label: 'Primeiros passos',
+    type: "category",
+    label: "Primeiros passos",
     collapsed: false,
     link: {
-      type: 'doc',
-      id: 'react-native/getting-started/index',
+      type: "doc",
+      id: `${gettingStarted}/index`,
     },
     items: [
-      'react-native/getting-started/installation'
-    ]
-  }
-]
-  ;
-
+      `${gettingStarted}/installation`,
+      `${gettingStarted}/customize-theme`,
+      `${gettingStarted}/adding-types`,
+      `${gettingStarted}/usage`,
+    ],
+  },
+  {
+    type: "category",
+    label: "Componentes",
+    collapsed: true,
+    items: [`${components}/button`],
+  },
+];
 module.exports = sidebar;

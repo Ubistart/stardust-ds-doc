@@ -1,0 +1,84 @@
+---
+  id: adding-types
+  displayed_sidebar: reactNativeSidebar
+  title: Adicionar tipagem
+  description: Adicionando tipagem com as customizações feitas ao tema.
+---
+
+Se estiver utilizando Typescript (altamente recomendado), para que seu projeto identifique as propriedades sobrescritas no tema, deve-se criar um arquivo de tipos para sobrescrever a tipagem da biblioteca também.
+
+Para que isso seja possível, você deve:
+
+- Criar um arquivo de definição do typescript, por exemplo: stardust-ds.d.ts
+- Sobrescrever o tema da seguinte maneira:
+
+```tsx
+import { customTheme } from "./App";
+
+type Theme = typeof customTheme;
+
+declare module "@stardust-ds/react-native" {
+  export interface StardustTheme extends Theme {}
+  export function useTheme(): Theme;
+}
+```
+
+### TS Config
+
+- Lembre-se de declarar **stardust-ds.d.ts** no arquivo `tsconfig.json` da seguinte forma:
+
+```json
+{
+  "compilerOptions": {
+    // your config
+  },
+  "include": ["src", "stardust.d.ts"]
+}
+```
+
+### Styled Components
+
+:::tip Integração com styled-components
+Stardust React JS utiliza `styled-components` como provider de tema. Para agilizar o seu processo, nós possibilitamos que você use este tema!
+Siga estes passos para fazer a configuração necessária.
+:::
+
+- Se você usar `styled-components`, também poderá estender o tema padrão ou personalizado:
+
+```tsx
+// styled.d.ts
+
+// Tema sem customização
+import { StardustTheme } from "@stardust-ds/react-native";
+// Tema com customização
+import { customTheme } from "./App";
+
+type Theme = typeof customTheme;
+
+declare module "styled-components" {
+  // Tema sem customização
+  export interface DefaultTheme extends StardustTheme {}
+  // Tema com customização
+  export interface DefaultTheme extends Theme {}
+}
+```
+
+### Tipagem em um único arquivo
+
+- Também é possível extender ambos em um único arquivo:
+
+```tsx
+// styled.d.ts
+import { customTheme } from "./App";
+
+type Theme = typeof customTheme;
+
+declare module "styled-components" {
+  export interface DefaultTheme extends Theme {}
+}
+
+declare module "@stardust-ds/react-native" {
+  export interface StardustTheme extends Theme {}
+  export function useTheme(): Theme;
+}
+```

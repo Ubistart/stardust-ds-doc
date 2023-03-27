@@ -1,0 +1,46 @@
+---
+  id: customize-theme
+  displayed_sidebar: reactNativeSidebar
+  title: Customizar o tema
+  description: Extensão do tema @stardust-ds/react-native
+---
+
+Por padrão, todos os componentes Stardust herdam valores do tema padrão.
+Em alguns cenários, pode ser necessário personalizar os tokens de tema para corresponder aos seus requisitos de design.
+
+Aqui estão algumas opções, dependendo de seus objetivos:
+
+- Personalize os tokens do tema, como cores, tamanhos de fonte, alturas de linha, etc.
+- Personalize os estilos globais.
+
+### Personalizando tokens do tema
+
+Para estender ou substituir um token no tema padrão, importe a função `extendTheme` e adicione as chaves que você deseja substituir. Você também pode adicionar novos valores ao tema.
+
+Por exemplo, se você quiser atualizar as cores do tema para incluir as cores da sua marca, faça o seguinte:
+
+```tsx
+import * as React from "react";
+import { ThemeProvider, extendTheme } from "@stardust-ds/react-native";
+
+const theme = {
+  color: {
+    primary: {
+      pure: "red",
+    },
+    ubistart: "blue",
+  },
+};
+
+const customTheme = extendTheme(theme);
+
+const App = () => (
+  <ThemeProvider theme={customTheme}>
+    <Page />
+  </ThemeProvider>
+);
+```
+
+Depois disso, você já pode usar a nova propriedade `theme.brand.color.ubistart`, e `theme.brand.color.pure` será "vermelho".
+
+Para acessar esta propriedade temos um hook customizado chamado `useTheme()`.
