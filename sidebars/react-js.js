@@ -52,6 +52,7 @@ const sidebar = [
       `${components}/link`,
       `${components}/radio`,
       `${components}/select`,
+      `${components}/skeleton`,
       `${components}/switch`,
       `${components}/tag`,
       `${components}/textarea`,
