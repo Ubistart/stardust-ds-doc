@@ -50,6 +50,7 @@ const sidebar = [
       `${components}/flex`,
       `${components}/input`,
       `${components}/link`,
+      `${components}/menu`,
       `${components}/radio`,
       `${components}/select`,
       `${components}/skeleton`,

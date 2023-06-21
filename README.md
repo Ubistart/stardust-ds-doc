@@ -54,6 +54,7 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
   [X] - Box
   [X] - Flex
   [X] - Skeleton
+  [X] - Menu
 
 - Styled System
   [x] - Style Props

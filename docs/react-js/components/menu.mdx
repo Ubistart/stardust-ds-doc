@@ -1,0 +1,137 @@
+---
+  id: menu
+  displayed_sidebar: reactJsSidebar
+  title: Menu
+  description: Componente de menu
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Menu é um componente dropdown isolado para facilitar na criação de sidebars.
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='menu-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Menu } from "@stardust-ds/react";
+```
+
+## Uso
+
+### Exemplo de utilização.
+
+```tsx live
+function example() {
+  MENU_DATA.MOCK_MENU_DATA.icon = <PhosphorIcons.User weight="fill" />;
+  MENU_DATA.MOCK_MENU_DATA.submenu[0].icon = (
+    <PhosphorIcons.Users weight="fill" />
+  );
+  return <Menu data={MENU_DATA.MOCK_MENU_DATA} />;
+}
+```
+
+### Customizando ícone de abrir/fechar menu.
+
+```tsx live
+<Menu
+  data={MENU_DATA.MOCK_MENU_DATA}
+  openSubmenuIcon={<PhosphorIcons.Plus weight="fill" color="black" />}
+  closeSubmenuIcon={<PhosphorIcons.Minus weight="fill" color="red" />}
+/>
+```
+
+### Customizando cores.
+
+```tsx live
+function example() {
+  MENU_DATA.MOCK_MENU_DATA.iconColor = "red";
+  return (
+    <Box bgColor="#222" bRadius="xs" width="fit-content" overflow="hidden">
+      <Menu
+        data={MENU_DATA.MOCK_MENU_DATA}
+        bgColor="black"
+        hoverBgColor="#222"
+        typographyProps={{
+          color: "white",
+        }}
+      />
+    </Box>
+  );
+}
+```
+
+### Customizando border left.
+
+```tsx live
+<Menu
+  data={MENU_DATA.MOCK_MENU_DATA}
+  borderLeftWidth={4}
+  borderLeftColor="black"
+/>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { MenuProps } from "@stardust-ds/react";
+
+interface MenuDataProps {
+  title: string;
+  // Caso queira realizar o controle de redirecionamento com react-router-dom.
+  onClick?: () => MenuDataProps["url"];
+  // Utilizará o href caso não seja passado o onClick.
+  url?: string;
+  icon?: React.ReactNode;
+  iconColor?: string;
+  submenu?: MenuDataProps[];
+}
+```
+
+### Propriedades
+
+<TableProps
+  title="Componente Menu"
+  rows={[
+    ["width", "string/number", "240", "Largura do componente"],
+    ["height", "string/number", "44", "Altura do componente"],
+    ["closeSubmenuIcon", "React Node", "Chevron up", "Alterar ícone de fechar"],
+    [
+      "closeSubmenuIconColor",
+      "string",
+      "Gray 8",
+      "Alterar cor do ícone de fechar",
+    ],
+    ["openSubmenuIcon", "React Node", "Chevron down", "Alterar ícone de abrir"],
+    [
+      "openSubmenuIconColor",
+      "string",
+      "Gray 8",
+      "Alterar cor do ícone de abrir",
+    ],
+    ["bgColor", "string", "White", "Alterar cor de fundo"],
+    [
+      "hoverBgColor",
+      "string",
+      "Primary ligther",
+      "Alterar cor de fundo ao passar o mouse",
+    ],
+    ["borderLeftWidth", "number", "0", "Alterar largura da borda esquerda"],
+    ["borderLeftColor", "string", "Gray 1", "Alterar cor da borda esquerda"],
+    ["typographyProps", "TypographyProps", "-", "Alterar estilos do texto"],
+    ["data", "MenuData", "-", "Dados do menu"],
+    ["bRadius", "string", "4px", "Abreviação para border-radius"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>
