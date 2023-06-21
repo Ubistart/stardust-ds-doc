@@ -2880,10 +2880,10 @@
     chroma-js "^2.4.2"
     lodash.mergewith "^4.6.2"
 
-"@stardust-ds/react@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.7.0.tgz#7efcb04ae03164880680c862967c0b5682eabe24"
-  integrity sha512-2F5Sc/EnJIzqAAYME/fRV9PBXI5SqPJoDyZlDrpYgBk9mu5SBgwF/qHFPe8tax6pLnWveKV2doALPRKVra2z5Q==
+"@stardust-ds/react@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.8.2.tgz#9f18d2cdb1c5363cc081352dd0904ac564c42e28"
+  integrity sha512-1havMxpwNtLwppTiG3ShcRQSECdYfus3sFGiHFAeu2qsPmR4/S4e/EnSUGEqTUYPC388NesZalakXTnCo54h/A==
   dependencies:
     "@popperjs/core" "^2.11.5"
     "@stardust-ds/core" "^0.3.5"

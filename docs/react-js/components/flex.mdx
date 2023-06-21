@@ -1,0 +1,116 @@
+---
+  id: flex
+  displayed_sidebar: reactJsSidebar
+  title: Flex
+  description: Componente de flex
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Flex é um Box com display flex e vem com uma abreviação de estilo útil. Ele renderiza um elemento `div`.
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='flex-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Flex } from "@stardust-ds/react";
+```
+
+## Uso
+
+Utilizando o componente Flex você encontra abreviações muito úteis, como:
+
+- flexDirection is flexDir
+- flexWrap is wrap
+- flexBasis is basis
+- flexGrow is grow
+- flexShrink is shrink
+- alignItems is align
+- justifyContent is justify
+
+```tsx live
+<Flex height={100} lineHeight="100%">
+  <Flex width={100} align="center" justify="center" bgColor="green">
+    <Typography type="l2">Box 1</Typography>
+  </Flex>
+  <Flex width={100} align="center" justify="center" bgColor="blue">
+    <Typography type="l2">Box 2</Typography>
+  </Flex>
+  <Box flex={1} bgColor="orange">
+    <Typography type="l2">Box 3</Typography>
+  </Box>
+</Flex>
+```
+
+### Flex utilizando justify "space-between"
+
+```tsx live
+<Flex align="center" justify="space-between">
+  <Box px="xxxs" py="xxxs" bRadius="xs" bgColor="red">
+    Box 1
+  </Box>
+  <Box px="xxxs" py="xxxs" bRadius="xs" bgColor="blue">
+    Box 2
+  </Box>
+</Flex>
+```
+
+### Criando um header com poucos elementos
+
+```tsx live
+<Flex
+  minWidth="max-content"
+  bgColor="white"
+  align="center"
+  px="xxxs"
+  py="xxxs"
+  justify="space-between"
+>
+  <Typography type="l2" color="black" fontSize="md">
+    Stardust DS
+  </Typography>
+  <Flex gap={8}>
+    <Button>Sign Up</Button>
+    <Button>Log in</Button>
+  </Flex>
+</Flex>
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { FlexProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+- Suporta todas as propriedades de um elemento `div` do HTML.
+- Aceita as propriedades de cores (bgColor, color), borda (bWidth, bColor, bRadius), etc...
+- Aceita as propriedades de espaçamento e tamanho (width, height, minWidth, maxWidth, minHeight, maxHeight, gap, px, py, mx, my, etc...).
+
+<TableProps
+  title="Componente Flex"
+  rows={[
+    ["flexDir", "string", "row", "Abreviação para flex-direction"],
+    ["align", "string", "flex-start", "Abreviação para align-items"],
+    ["justify", "string", "flex-start", "Abreviação para justify-content"],
+    ["basis", "string", "-", "Abreviação para flex-basis"],
+    ["grow", "string", "-", "Abreviação para flex-grow"],
+    ["shrink", "string", "-", "Abreviação para flex-shrink"],
+    ["wrap", "string", "-", "Abreviação para flex-wrap"],
+    ["flex", "number", "-", "-"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>

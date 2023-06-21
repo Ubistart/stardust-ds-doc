@@ -1,0 +1,114 @@
+---
+  id: skeleton
+  displayed_sidebar: reactJsSidebar
+  title: Skeleton
+  description: Componente de skeleton
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Skeleton é um componente que vem com abreviações de estilos bem úteis. Ele renderiza um elemento `div`.
+
+- **Obs.:** Todos os exemplos são editávies.
+
+<Tabs groupId='skeleton-component'>
+<TabItem value='Uso' label='Uso'>
+
+## Importação
+
+```tsx
+import { Skeleton } from "@stardust-ds/react";
+```
+
+## Uso
+
+O componente Skeleton é útil para criar um espaço reservado enquanto o conteúdo real está sendo carregado para a página.
+
+### Exemplo de utilização definindo a altura.
+
+```tsx live
+<Flex flexDir="column" gap={5}>
+  <Skeleton height={20} bRadius="xs" />
+  <Skeleton height={20} bRadius="xs" />
+  <Skeleton height={20} bRadius="xs" />
+</Flex>
+```
+
+### Realizando wrap de um componente já existente.
+
+```tsx live
+<Skeleton width="fit-content" bRadius="xs">
+  <Button>Conteúdo</Button>
+</Skeleton>
+```
+
+### Alterando as cores
+
+```tsx live
+<Skeleton height={20} bgColors={["red", "green"]} bRadius="xs" />
+```
+
+### Apresentando o conteúdo quando o conteúdo já foi carregado.
+
+```tsx live
+<Skeleton isLoaded bRadius="xs">
+  <Button>Conteúdo</Button>
+</Skeleton>
+```
+
+### Botão de toggle para apresentar o conteúdo
+
+```tsx live
+function skeletonExemple() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <Box>
+      <Skeleton isLoaded={isLoaded} bRadius="xs">
+        <Typography type="h4">Conteúdo legal</Typography>
+      </Skeleton>
+      <Button mTop="xxxs" onClick={() => setIsLoaded((state) => !state)}>
+        Toggle
+      </Button>
+    </Box>
+  );
+}
+```
+
+</TabItem>
+
+<TabItem value='Propriedades' label='Propriedades'>
+
+## Importação
+
+```tsx
+import { SkeletonProps } from "@stardust-ds/react";
+```
+
+### Propriedades
+
+<TableProps
+  title="Componente Skeleton"
+  rows={[
+    [
+      "isLoaded",
+      "boolean",
+      "false",
+      "true/false para controlar a renderização do componente",
+    ],
+    ["width", "string", "100%", "Largura do componente"],
+    ["height", "string", "-", "Altura do componente"],
+    [
+      "bgColors",
+      "string[]",
+      "['#e1e1e1', '#f1f1f1']",
+      "Array de cores para o background do componente",
+    ],
+    ["bRadius", "string", "-", "Abreviação para border-radius"],
+  ]}
+/>
+
+</TabItem>
+</Tabs>
