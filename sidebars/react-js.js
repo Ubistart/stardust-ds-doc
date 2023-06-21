@@ -43,6 +43,7 @@ const sidebar = [
     items: [
       `${components}/avatar`,
       `${components}/badge`,
+      `${components}/box`,
       `${components}/button`,
       `${components}/checkbox`,
       `${components}/datepicker`,
