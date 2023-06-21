@@ -47,6 +47,7 @@ const sidebar = [
       `${components}/button`,
       `${components}/checkbox`,
       `${components}/datepicker`,
+      `${components}/flex`,
       `${components}/input`,
       `${components}/link`,
       `${components}/radio`,

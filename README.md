@@ -52,6 +52,7 @@ Portanto, para adicionar uma nova documentação, você precisará inserir a pá
   [X] - Link
   [X] - Avatar
   [X] - Box
+  [X] - Flex
 
 - Styled System
   [x] - Style Props
