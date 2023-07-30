@@ -1,0 +1,126 @@
+---
+  id: types
+  displayed_sidebar: reactNativeSidebar
+  title: Interfaces
+  description: Interfaces
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { TableProps } from "@site/src/components";
+
+Interfaces comuns na maioria dos componentes encontrados no Design System.
+
+<Tabs groupId='interfaces' queryString>
+
+<TabItem value='BuildSpacingPropsArgs' label='Spacing'>
+  <Tabs groupId='spc' queryString>
+    <TabItem value='spacingkeys2' label='Keys'>
+      <TableProps
+        title="Spacing keys"
+        headers={["nome", "valor"]}
+        rows={[
+          ["quark", 4],
+          ["nano", 8],
+          ["xxxs", 16],
+          ["xxs", 24],
+          ["xs", 32],
+          ["sm", 40],
+          ["md", 48],
+          ["lg", 56],
+          ["xl", 64],
+          ["xxl", 80],
+          ["xxxl", 120],
+          ["huge", 160],
+          ["giant", 200],
+        ]}
+      />
+    </TabItem>
+    <TabItem value='spacingkeys3' label='Props'>
+      <TableProps
+        title="Spacing props"
+        useRequiredHeader
+        rows={[
+          ["mBottom", "SpacingKey", "Não", "-", "margim-bottom"],
+          ["mTop", "SpacingKey", "Não", "-", "margin-top"],
+          ["mLeft", "SpacingKey", "Não", "-", "margin-left"],
+          ["mRight", "SpacingKey", "Não", "-", "margin-right"],
+          ["mX", "SpacingKey", "Não", "-", "margin-left e margin-right"],
+          ["mY", "SpacingKey", "Não", "-", "margin-bottom e margin-top"],
+          ["pBottom", "SpacingKey", "Não", "-", "padding-bottom"],
+          ["pTop", "SpacingKey", "Não", "-", "padding-top"],
+          ["pLeft", "SpacingKey", "Não", "-", "padding-left"],
+          ["pRight", "SpacingKey", "Não", "-", "padding-right"],
+          ["pX", "SpacingKey", "Não", "-", "padding-left e padding-right"],
+          ["pY", "SpacingKey", "Não", "-", "padding-bottom e padding-top"],
+          ["top", "SpacingKey", "Não", "-", "top"],
+          ["bottom", "SpacingKey", "Não", "-", "bottom"],
+          ["right", "SpacingKey", "Não", "-", "right"],
+          ["left", "SpacingKey", "Não", "-", "left"]
+        ]}
+      />
+    </TabItem>
+
+  </Tabs>
+</TabItem>
+
+<TabItem value="BuildSizePropsArgs" label="Size">
+  <TableProps
+    title="Size props"
+    headers={["nome", "tipo", "Obrigatório"]}
+    rows={[
+      ["height", "number | string", "Não"],
+      ["minHeight", "number | string", "Não"],
+      ["maxHeight", "number | string", "Não"],
+      ["width", "number | string", "Não"],
+      ["minWidth", "number | string", "Não"],
+      ["maxWidth", "number | string", "Não"],
+    ]}
+  />
+</TabItem>
+
+<TabItem value="BuildBorderPropsArgs" label="Border">
+  <Tabs groupId="border-p" queryString>
+    <TabItem value="BorderRadius" label="Radius">
+      <TableProps
+        title="Radius keys"
+        headers={["nome", "valor"]}
+        rows={[
+          ["none", 0],
+          ["xs", 5],
+          ["sm", 8],
+          ["md", 16],
+          ["lg", 24],
+          ["pill", 500]
+        ]}
+      />
+    </TabItem>
+    <TabItem value="BorderWidth" label="Width">
+      <TableProps
+        title="Width keys"
+        headers={["nome", "valor"]}
+        rows={[
+          ["none", 0],
+          ["harline", 1],
+          ["thin", 3],
+          ["thinck", 4],
+          ["heavy", 8]
+        ]}
+      />
+    </TabItem>
+    <TabItem value="BorderProps" label="Props">
+      <TableProps
+        title="Border props"
+        headers={["nome", "tipo", "Obrigatório"]}
+        rows={[
+          ["bRadius", "BorderRadiusKey", "Não"],
+          ["bWidth", "BorderWidthKey", "Não"],
+          ["bColor", "string", "Não"]
+        ]}
+      />
+    </TabItem>
+
+  </Tabs>
+</TabItem>
+
+</Tabs>

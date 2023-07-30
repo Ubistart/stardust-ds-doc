@@ -9,156 +9,77 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import { TableProps } from "@site/src/components";
 
-Componente de botão para executar evento ou ações. Pode ser usado para submeter formulários, abrir links, etc.
-
-- **Obs.:** Todos os exemplos são editávies.
+Componente de botão customizável baseado no componente [Pressable](https://reactnative.dev/docs/pressable).
 
 <Tabs groupId='button-component'>
-<TabItem value='Uso' label='Uso'>
+<TabItem value='demo' label='Demo'>
 
-## Importação
-
-```tsx
-import { Button } from "@stardust-ds/react-native";
-```
-
-## Uso
-
-```tsx live
-<Button>Button</Button>
-```
-
-### Button com variações
-
-Use a propriedade `variant` para alterar o estilo visual do Button. Você pode definir o valor como `primary` e `secondary`.
-
-```tsx live
-<div className="row">
-  <Button variant="primary">Primary</Button>
-  <Button variant="secondary">Button</Button>
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <iframe
+    width="300"
+    height="680"
+    src="https://youtube.com/embed/I60K3MNbpKM"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  />
 </div>
-```
-
-### Button com toda a largura preenchida
-
-```tsx live
-function example() {
-  const [isFullWidth, setIsFullWidth] = useState(false);
-  return (
-    <>
-      <div className="row" style={{ alignItems: "center" }}>
-        <Switch checked={isFullWidth} onChange={setIsFullWidth} />
-        <Typography type="l1">Preencher toda a largura</Typography>
-      </div>
-
-      <Button mTop="xxxs" isFullWidth={isFullWidth}>
-        Button
-      </Button>
-    </>
-  );
-}
-```
-
-### Button com propriedade `bgColor`
-
-Use a propriedade bgColor para alterar a cor do `Button`. Você pode definir o valor para qualquer uma das cores do seu sistema de design.
-
-```tsx live
-function example(props) {
-  const { brand } = useTheme();
-  return (
-    <div className="row">
-      <Button bgColor={brand.color.primary.pure}>Primary</Button>
-      <Button bgColor={brand.color.secondary.pure}>Secondary</Button>
-      <Button bgColor={brand.color.positive.pure}>Positive</Button>
-      <Button bgColor={brand.color.negative.pure}>Negative</Button>
-    </div>
-  );
-}
-```
-
-### Button com propriedade `isLoading`
-
-Use a propriedade isLoading para indicar ao usuário que algo esta carregando.
-
-```tsx live
-function example(props) {
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(!isLoading);
-    }, 2000);
-
-    return () => {
-      clearInterval(timeout);
-    };
-  }, [isLoading]);
-
-  return (
-    <Button isLoading={isLoading} iconLeft={<DownloadIcon />}>
-      Download
-    </Button>
-  );
-}
-```
-
-### Button com icones
-
-Você pode adicionar ícones esquerdo e direito ao componente `Button` usando as propriedades iconLeft e iconRight respectivamente.
-
-```tsx live
-<div className="row">
-  <Button iconLeft={<DownloadIcon />}>Button</Button>
-  <Button iconRight={<DownloadIcon />}>Button</Button>
-</div>
-```
-
-### Button customizado
-
-Você também pode criar seu próprio botão customizado.
-
-```tsx live
-<div className="row">
-  <Button
-    typographyProps={{ fontWeight: "light", type: "p2", color: "aqua" }}
-    bWidth="hairline"
-    bColor="aqua"
-    bStyle="solid"
-  >
-    Button
-  </Button>
-
-  <Button labelColor="black" bgColor="green" bWidth="hairline" bColor="red" bStyle="solid">
-    Button
-  </Button>
-</div>
-```
 
 </TabItem>
 
-<TabItem value='Propriedades' label='Propriedades'>
-
-## Importação
-
-```tsx
-import { ButtonProps } from "@stardust-ds/react";
-```
-
-### Propriedades
-
+<TabItem value='propriedades' label='Propriedades'>
+  TypographyProps
+BuildAccessoryPropsArgs
+IconSvgProps
+BuildBorderPropsArgs
+BuildSizePropsArgs
+BuildSpacingPropsArgs
 <TableProps
-  title="Componente Button"
+  title="Propriedades"
+  useRequiredHeader
   rows={[
-    ["children", "node", "-", "Conteúdo do componente"],
-    ["variant", "string", "primary", "primary/secondary"],
-    ["isFullWidth", "boolean", "false", "true/false"],
-    ["isLoading", "boolean", "false", "true/false"],
-    ["labelColor", "string", "-", "Cor da label"],
-    ["bgColor", "string", "-", "Cor de fundo"],
-    ["bWidth", "string", "-", "Largura da borda"],
-    ["bColor", "string", "-", "Cor da borda"],
-    ["bStyle", "string", "-", "Estilo da borda"],
+    ["label", "JSX.Element | string", "Sim", "-", "Texto a ser renderizado com label no componente"],
+    [
+      "labelTypographyProps",
+      "TypographyProps",
+      "Não",
+      <pre>
+        <code class="json" contentEditable="true">
+          &#123;
+          <br />
+          &emsp;type: p2,
+          <br />
+          &emsp;fontWeight: bold,
+          <br />
+          &emsp;fontFamily: Poppins-Bold
+          <br />
+          &#125;
+        </code>
+      </pre>,
+      "Propriedades da label a ser renderizada",
+    ],
+    [
+      "PressableProps",
+      <a href="https://reactnative.dev/docs/pressable#props">PressableProps</a>,
+      "Não",
+      "-",
+      "Propriedades herdadas do componente Pressable",
+    ],
+    ["isFullWidth", "boolean", "Não", "false", "Coloca o componente em tamanho 100% da largura do componente que se encontra"],
+    ["variant", "'primary' | 'secondary'", "Não", "'primary'", "Aplica uma das pré definições de design disponíveis"],
+    
+    ["bgColor", "string", "Não", "-", "Cor de fundo do componente"],
+    ["labelColor", "string", "Não", "pureWhite", "Cor da lebel do componente"],
+    ["underlayLabelColor", "string", "Não", "labelColor", "Cor da label ao pressionar o componente"],
+    ["bgUnderlayColor", "string", "Não", "bgColor com 0.8 de opacidade", "Cor de fundo ao pressionar o componente"],
+    
+    
+    ["IconLeft", "SVG (React.FC<IconSvgProps>)", "Não", "-", "Icone a ser renderizado do lado esquerdo"],
+    ["IconRight", "SVG (React.FC<IconSvgProps>)", "Não", "-", "Icone a ser renderizado do lado direito"],
+    
+    ["SizeProps", "SizeProps", "Não", "-", "Propriedades referentes as dimensões do componente"],
+    ["BorderProps", "BorderProps", "Não", "-", "Propriedades referentes as bordas do componente"],
+    ["SpacingProps", "SpacingProps", "Não", "-", "Propriedades referentes aos espaçamentos do componente"],
   ]}
 />
 

@@ -28,6 +28,7 @@ const sidebar = [
       `${gettingStarted}/customize-theme`,
       `${gettingStarted}/adding-types`,
       `${gettingStarted}/usage`,
+      `${gettingStarted}/types`,
     ],
   },
   {
