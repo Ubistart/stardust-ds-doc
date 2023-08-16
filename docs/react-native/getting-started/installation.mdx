@@ -8,74 +8,70 @@
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Nossa **library** faz uso de algumas dependências e configurações padrões que são necessárias para o nosso funcionamento **default** que segue o nosso _Design System_.
+
+Nossa __library__ faz uso de algumas dependências e configurações padrões que são necessárias para o nosso funcionamento __default__ que segue o nosso *Design System*.
 
 Essas dependências por exemplo são:
 
 ### SVG
 
-Necessário configurar duas **libraries**:
+ Necessário configurar duas __libraries__:
+  - 1. [react-native-svg](https://github.com/react-native-svg/react-native-svg)
+    - 1.1 caso esteja utilizando Typescript (o que recomendamos), precisará criar um arquivo, ou adicionar caso exista um, para que o typescript reconheça os imports dos svgs:
+    ```custom.d.ts```:
 
-- 1. [react-native-svg](https://github.com/react-native-svg/react-native-svg)
-
-  - 1.1 caso esteja utilizando Typescript (o que recomendamos), precisará criar um arquivo, ou adicionar caso exista um, para que o typescript reconheça os imports dos svgs:
-    `custom.d.ts`:
-
-  ```js
-  declare module '*.svg' {
-    const content: any;
-    export default content;
-  }
-  ```
-
-- 2. [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer)
-
-  - 2.1 Para podermos manipular as cores dos svg que eventualmente usará, precisamos criar um arquivo para a configuração desses svgs.
-    `.svgrrc`
-
-  ```js
-    {
-      "replaceAttrValues": {
-        "#000000": "{props.fill}",
-        "black": "{props.fill}"
-      }
+    ```js
+    declare module '*.svg' {
+      const content: any;
+      export default content;
     }
-  ```
+    ```
 
-  > ⚠️ Tenha **ATENÇÃO** que caso a cor do seu svg não for um dos valores '#000000' ou 'black', a cor do mesmo não será alterada. Para isso, ou mude as cores do svg para tais cores mencionadas ou adicione uma nova propriedade no 'replaceAttrValues' com a cor que quer substituir. exemplo: "red": "{props.fill}"
+  - 2. [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer)
+    - 2.1 Para podermos manipular as cores dos svg que eventualmente usará, precisamos criar um arquivo para a configuração desses svgs.
+    ```.svgrrc```
+
+    ```js
+      {
+        "replaceAttrValues": {
+          "#000000": "{props.fill}",
+          "black": "{props.fill}"
+        }
+      }
+    ```
+
+    > ⚠️ Tenha **ATENÇÃO** que caso a cor do seu svg não for um dos valores '#000000' ou 'black', a cor do mesmo não será alterada. Para isso, ou mude as cores do svg para tais cores mencionadas ou adicione uma nova propriedade no 'replaceAttrValues' com a cor que quer substituir. exemplo: "red": "{props.fill}"
 
 ### Tipografia - customizada ([Poppins](./src/assets/fonts/))
 
-- 1. É necessário criar um arquivo chamado de `react-native.config.js` caso o teu projeto não possua.
-- 2. Criar uma pasta `assets/fonts` e colocar os arquivos de fontes dentro.
+  - 1. É necessário criar um arquivo chamado de ```react-native.config.js``` caso o teu projeto não possua.
+  - 2. Criar uma pasta ```assets/fonts``` e colocar os arquivos de fontes dentro.
 
-- 3. `react-native.config.js`:
+  - 3. ```react-native.config.js```:
 
-  ```js
-  module.exports = {
-    assets: ["./assets/fonts"],
-  };
-  ```
+    ```js
+      module.exports = {
+        assets: ['./assets/fonts'],
+      };
+    ```
 
-- 4. Então execute o comando
+  - 4. Então execute o comando
 
-  > = 0.69
+    >= 0.69
+    ```bash
+    npx react-native-asset
+    ```
 
-  ```bash
-  npx react-native link
-  ```
+    < 0.69
+    ```bash
+    npx react-native link
+    ```
 
-  < 0.69
-
-```bash
-npx react-native link
-```
-
-Para maior entendimento da utilização do Typography em diferentes sistemas operacionais, consulte a documentação específica
+    Para maior entendimento da utilização do Typography em diferentes sistemas operacionais, consulte a documentação específica [aqui](./Typography.md)
 
 ### Instalando a library
 
-Após as configurações acima, temos que instalar a nossa **library** como uma dependência no vosso projeto.
+Após as configurações acima, temos que instalar a nossa __library__ como uma dependência no vosso projeto.
 
 ```bash
 yarn add @stardust-ds/react-native #ou npm install @stardust-ds/react-native
@@ -83,19 +79,19 @@ yarn add @stardust-ds/react-native #ou npm install @stardust-ds/react-native
 
 Agora precisamos fazer algumas configurações para podermos utilizar os recursos dentro do projeto.
 
-Precisamos encapsular o seu **APP** no `ThemeManager` para o tema ser acessível em toda a aplicação:
+Precisamos encapsular o seu __APP__ no ```ThemeManager``` para o tema ser acessível em toda a aplicação:
 
 ```js
-import { ThemeManager } from "@stardust-ds/react-native";
+import { ThemeManager } from '@stardust-ds/react-native';
 
 const App = () => (
-  <ThemeManager>
-    <SeuAppAqui />
-  </ThemeManager>
+ <ThemeManager>
+   <SeuAppAqui />
+ </ThemeManager>
 );
 ```
 
-Com essa configuração já será possível fazer a utilização dos componentes disponíveis na _library_.
+Com essa configuração já será possível fazer a utilização dos componentes disponíveis na *library*.
 
 ## Utilizando os componentes
 
@@ -113,31 +109,31 @@ const App = () => (
 
 ## Styling - Customizando o Tema da library
 
-Nossa _library_ tem a possibilidade de sobrescrever os estilos definidos por padrão, usados no nosso **Design System**.
+Nossa *library* tem a possibilidade de sobrescrever os estilos definidos por padrão, usados no nosso __Design System__.
 
-Para isso, utilize a função `extendTheme()` para inserir as propriedades do seu tema, ou sobrescrever as já existentes, como por exemplo:
+Para isso, utilize a função ```extendTheme()``` para inserir as propriedades do seu tema, ou sobrescrever as já existentes, como por exemplo:
 
 ```js
-import { ThemeManager, extendTheme } from "@stardust-ds/react-native";
+import { ThemeManager, extendTheme } from '@stardust-ds/react-native';
 
 const theme = {
-  color: {
-    ubistart: "blue",
-  },
-};
+ color: {
+  ubistart: "blue",
+ },
+}
 
 const customTheme = extendTheme(theme);
 
 const App = () => (
-  <ThemeManager theme={customTheme}>
-    <SeuAppAqui />
-  </ThemeManager>
+ <ThemeManager theme={customTheme}>
+   <SeuAppAqui />
+ </ThemeManager>
 );
 ```
 
-Após essa definição, já estará disponível para utilização a propriedade `theme.brand.color.ubistart`
+Após essa definição, já estará disponível para utilização a propriedade ```theme.brand.color.ubistart```
 
-Para acessar essa propriedade temos que invocar o nosso _custom hook_ de tema e utilizar a propriedade theme dele.
+Para acessar essa propriedade temos que invocar o nosso *custom hook* de tema e utilizar a propriedade theme dele.
 
 ```js
 import { useTheme, Button } from '@stardust-ds/react-native';
@@ -160,7 +156,7 @@ Se estiver utilizando Typescript (altamente recomendado), para que seu projeto i
 
 como por exemplo:
 
-`type.d.ts`
+```type.d.ts```
 
 ```js
 import { customTheme } from './App'; // lembre de exportar essa informação no seu App ou onde quer que tenha definido ela e importe aqui
@@ -188,7 +184,7 @@ declare module 'styled-components' {
 }
 ```
 
-Para finalizar, adicione o arquivo `type.d.ts` na propriedade `include` do seu arquivo tsconfig.
+Para finalizar, adicione o arquivo ```type.d.ts``` na propriedade ```include``` do seu arquivo tsconfig.
 
 exemplo:
 
