@@ -2482,7 +2482,7 @@
     "@docusaurus/theme-search-algolia" "2.0.1"
     "@docusaurus/types" "2.0.1"
 
-"@docusaurus/react-loadable@5.5.2", "react-loadable@npm:@docusaurus/react-loadable@5.5.2":
+"@docusaurus/react-loadable@5.5.2":
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/react-loadable/-/react-loadable-5.5.2.tgz#81aae0db81ecafbdaee3651f12804580868fa6ce"
   integrity sha512-A3dYjdBGuy0IGT+wyLIGIKLRE+sAk1iNk0f1HjNDysO7u8lhL4N3VEm+FAubmJbAztn94F7MxBTPmnixbiyFdQ==
@@ -2880,10 +2880,10 @@
     chroma-js "^2.4.2"
     lodash.mergewith "^4.6.2"
 
-"@stardust-ds/react@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.8.2.tgz#9f18d2cdb1c5363cc081352dd0904ac564c42e28"
-  integrity sha512-1havMxpwNtLwppTiG3ShcRQSECdYfus3sFGiHFAeu2qsPmR4/S4e/EnSUGEqTUYPC388NesZalakXTnCo54h/A==
+"@stardust-ds/react@^0.8.13":
+  version "0.8.13"
+  resolved "https://registry.yarnpkg.com/@stardust-ds/react/-/react-0.8.13.tgz#b65b3bcfd57d3b1de3cdc96abb8bd342874549ff"
+  integrity sha512-LUUOns9rxBRwS/lSf4rsjlgvt87B7v49V+UCcwfA/n3+MLcbkr13Y0Ny0TyLNEHlSWbJZzGdfP0EJrcHMRkd+Q==
   dependencies:
     "@popperjs/core" "^2.11.5"
     "@stardust-ds/core" "^0.3.5"
@@ -7616,6 +7616,14 @@ react-loadable-ssr-addon-v5-slorber@^1.0.1:
   integrity sha512-lq3Lyw1lGku8zUEJPDxsNm1AfYHBrO9Y1+olAYwpUJ2IGFBskM0DMKok97A6LWUpHm+o7IvQBOWu9MLenp9Z+A==
   dependencies:
     "@babel/runtime" "^7.10.3"
+
+"react-loadable@npm:@docusaurus/react-loadable@5.5.2":
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/@docusaurus/react-loadable/-/react-loadable-5.5.2.tgz#81aae0db81ecafbdaee3651f12804580868fa6ce"
+  integrity sha512-A3dYjdBGuy0IGT+wyLIGIKLRE+sAk1iNk0f1HjNDysO7u8lhL4N3VEm+FAubmJbAztn94F7MxBTPmnixbiyFdQ==
+  dependencies:
+    "@types/react" "*"
+    prop-types "^15.6.2"
 
 react-popper@^2.3.0:
   version "2.3.0"
